@@ -1,7 +1,7 @@
     Pod::Spec.new do |s|  
       
       s.name         = "WHCategory"  
-      s.version      = "1.0.2"  
+      s.version      = "1.0.3"  
       s.summary      = "Make development easier."  
       s.homepage     = "https://github.com/remember17/WHCategory"  
       s.license      = "MIT"  
