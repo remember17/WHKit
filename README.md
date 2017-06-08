@@ -1,8 +1,9 @@
-# WHCategories
+# WHCategory
 分类,开发小工具
 
 ## 如何使用 
-只需要导入头文件: #import "WHCategories.h" 
+只需要导入头文件: #import "WHCategory.h", 
+
 这个文件中包含了如下内容
 ```objc
 #import "NSArray+WHArray.h"
