@@ -1,4 +1,4 @@
-# WHCategories
+# WHCategory
 分类,开发小工具
 
 ### 使用方法 
@@ -67,6 +67,7 @@ NSString *macAddress = [UIDevice macAddress];
 /**@brief  渐变颜色*/
 + (UIColor*)wh_gradientFromColor:(UIColor*)fromColor toColor:(UIColor*)toColor withHeight:(CGFloat)height;
 ```
+
 ### 还有许多好用的方法在分类中。如果觉得好用就给个Star吧,谢谢😁
 
 ## MIT LICENSE

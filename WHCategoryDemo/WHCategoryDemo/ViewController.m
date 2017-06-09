@@ -12,6 +12,7 @@
 @interface ViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, weak) UIButton *downButton;
+
 @property (nonatomic, weak) UIButton *topButton;
 
 @end
