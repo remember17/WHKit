@@ -2,7 +2,9 @@
 分类,开发小工具
 
 ## 如何使用 
-只需要导入头文件: #import "WHCategory.h", 
+只需要导入头文件: #import "WHCategory.h".
+
+可以直接在项目中 pod WHCategory 如果没找到, 请先pod setup, 然后再pod 'WHCategory' 
 
 这个文件中包含了如下内容
 ```objc
