@@ -6,7 +6,13 @@
 
 可以直接在项目中 pod WHCategory 如果没找到, 请先pod setup, 然后再pod 'WHCategory' 
 
-这个文件中包含了如下内容
+### 使用方法 
+```objc
+ a>> 直接在本网页下载使用：#import "WHCategory.h"
+ b>> 或者利用CocoaPods安装到项目中：#import <WHCategory.h>
+```
+
+### 这个文件中包含了如下内容
 ```objc
 #import "NSArray+WHArray.h"
 #import "NSDate+WHDate.h"
@@ -34,7 +40,7 @@
 #import "WHMacro.h"
 ```
 
-## 例子 Example
+### 例子 Example
 ```objc
 //点击按钮
     [button wh_addActionHandler:^{
@@ -66,6 +72,7 @@ NSString *macAddress = [UIDevice macAddress];
 /**@brief  渐变颜色*/
 + (UIColor*)wh_gradientFromColor:(UIColor*)fromColor toColor:(UIColor*)toColor withHeight:(CGFloat)height;
 ```
-### 还有许多别的好用的方法在分类中
+
+### 还有许多好用的方法在分类中。如果觉得好用就给个Star吧,谢谢😁
 
 ## MIT LICENSE
