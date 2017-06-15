@@ -91,6 +91,7 @@
 		68C2097A1EF2173100206F28 /* WHMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMethods.h; sourceTree = "<group>"; };
 		68C2097B1EF2173100206F28 /* WHMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMethods.m; sourceTree = "<group>"; };
 		68C209911EF2173F00206F28 /* WHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHKit.h; sourceTree = "<group>"; };
+		E8B0A65B1EF28E7C0064ECBF /* SerializeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializeKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +189,7 @@
 				68C209751EF2173100206F28 /* UIView+WHView.m */,
 				68C209761EF2173100206F28 /* UIViewController+WHVC.h */,
 				68C209771EF2173100206F28 /* UIViewController+WHVC.m */,
+				E8B0A65B1EF28E7C0064ECBF /* SerializeKit.h */,
 				68C209791EF2173100206F28 /* WHMacro.h */,
 				68C2097A1EF2173100206F28 /* WHMethods.h */,
 				68C2097B1EF2173100206F28 /* WHMethods.m */,
@@ -449,6 +451,7 @@
 				68C2094E1EF216E500206F28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

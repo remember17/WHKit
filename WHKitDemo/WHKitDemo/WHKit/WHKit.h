@@ -28,6 +28,7 @@
 #import "UIView+WHView.h"
 #import "UIViewController+WHVC.h"
 #import "WHMethods.h"
+#import "SerializeKit.h"
 /******************************/
 
 
