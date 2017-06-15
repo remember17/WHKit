@@ -1,15 +1,15 @@
-# WHCategory
+# WHKit
 分类,开发小工具
 
 ## 如何使用 
-只需要导入头文件: #import "WHCategory.h".
+只需要导入头文件: #import "WHKit.h".
 
-可以直接在项目中 pod WHCategory 如果没找到, 请先pod setup, 然后再pod 'WHCategory' 
+可以直接在项目中 pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit' 
 
 ### 使用方法 
 ```objc
- a>> 直接在本网页下载使用：#import "WHCategory.h"
- b>> 或者利用CocoaPods安装到项目中：#import <WHCategory.h>
+ a>> 直接在本网页下载使用：#import "WHKit.h"
+ b>> 或者利用CocoaPods安装到项目中：#import <WHKit.h>
 ```
 
 ### 这个文件中包含了如下内容
