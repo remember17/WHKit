@@ -64,13 +64,13 @@ typedef void (^LongPressActionBlock)(UILongPressGestureRecognizer *gestureRecogi
 + (instancetype)wh_loadViewFromNibWithName:(NSString *)nibName owner:(id)owner;
 + (instancetype)wh_loadViewFromNibWithName:(NSString *)nibName owner:(id)owner bundle:(NSBundle *)bundle;
 
-/*!
+/**
  * 给UIView 设置圆角
  */
 @property (assign,nonatomic) IBInspectable NSInteger cornerRadius;
 @property (assign,nonatomic) IBInspectable BOOL  masksToBounds;
 
-/*!
+/**
  * 设置 view的 边框颜色(选择器和Hex颜色)
  * 以及 边框的宽度
  */

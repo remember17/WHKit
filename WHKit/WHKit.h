@@ -13,6 +13,7 @@
 #import "NSFileManager+WHFileManager.h"
 #import "NSNumber+WHNumber.h"
 #import "NSObject+WHObject.h"
+#import "NSObject+WHRuntime.h"
 #import "NSString+WHString.h"
 #import "NSTimer+WHTimer.h"
 #import "UIBarButtonItem+WHBarButtonItem.h"

@@ -253,7 +253,7 @@ static int delayCentisecondsForImageAtIndex(CGImageSourceRef const source, size_
         CFRelease(properties);
         if (gifProperties) {
             CFNumberRef const number = CFDictionaryGetValue(gifProperties, kCGImagePropertyGIFDelayTime);
-            // Even though the GIF stores the delay as an integer number of centiseconds, ImageIO “helpfully” converts that to seconds for us.
+            
             delayCentiseconds = (int)lrint([fromCF number doubleValue] * 100);
         }
     }
@@ -349,45 +349,35 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 
 - (UIImage *)imageCroppedToRect:(CGRect)rect
 {
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0f);
     
-    //draw
     [self drawAtPoint:CGPointMake(-rect.origin.x, -rect.origin.y)];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
 - (UIImage *)imageScaledToSize:(CGSize)size
 {
-    //avoid redundant drawing
     if (CGSizeEqualToSize(self.size, size))
     {
         return self;
     }
     
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     
-    //draw
     [self drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
 - (UIImage *)imageScaledToFitSize:(CGSize)size
 {
-    //calculate rect
     CGFloat aspect = self.size.width / self.size.height;
     if (size.width / aspect <= size.height)
     {
@@ -405,7 +395,7 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     {
         return self;
     }
-    //calculate rect
+
     CGFloat aspect = self.size.width / self.size.height;
     if (size.width / aspect >= size.height)
     {
@@ -421,7 +411,6 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
                              contentMode:(UIViewContentMode)contentMode
                                 padToFit:(BOOL)padToFit;
 {
-    //calculate rect
     CGRect rect = CGRectZero;
     switch (contentMode)
     {
@@ -505,7 +494,6 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     
     if (!padToFit)
     {
-        //remove padding
         if (rect.size.width < size.width)
         {
             size.width = rect.size.width;
@@ -518,23 +506,18 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
         }
     }
     
-    //avoid redundant drawing
     if (CGSizeEqualToSize(self.size, size))
     {
         return self;
     }
     
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     
-    //draw
     [self drawInRect:rect];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
@@ -543,7 +526,6 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     static CGImageRef sharedMask = NULL;
     if (sharedMask == NULL)
     {
-        //create gradient mask
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(1, 256), YES, 0.0);
         CGContextRef gradientContext = UIGraphicsGetCurrentContext();
         CGFloat colors[] = {0.0, 1.0, 1.0, 1.0};
@@ -563,87 +545,67 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 
 - (UIImage *)reflectedImageWithScale:(CGFloat)scale
 {
-    //get reflection dimensions
     CGFloat height = ceil(self.size.height * scale);
     CGSize size = CGSizeMake(self.size.width, height);
     CGRect bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
-    
-    //create drawing context
+
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    //clip to gradient
+
     CGContextClipToMask(context, bounds, [[self class] gradientMask]);
-    
-    //draw reflected image
+
     CGContextScaleCTM(context, 1.0f, -1.0f);
     CGContextTranslateCTM(context, 0.0f, -self.size.height);
     [self drawInRect:CGRectMake(0.0f, 0.0f, self.size.width, self.size.height)];
-    
-    //capture resultant image
+
     UIImage *reflection = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    //return reflection image
+
     return reflection;
 }
 
 - (UIImage *)imageWithReflectionWithScale:(CGFloat)scale gap:(CGFloat)gap alpha:(CGFloat)alpha
 {
-    //get reflected image
+
     UIImage *reflection = [self reflectedImageWithScale:scale];
     CGFloat reflectionOffset = reflection.size.height + gap;
-    
-    //create drawing context
+
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.size.width, self.size.height + reflectionOffset * 2.0f), NO, 0.0f);
-    
-    //draw reflection
+ 
     [reflection drawAtPoint:CGPointMake(0.0f, reflectionOffset + self.size.height + gap) blendMode:kCGBlendModeNormal alpha:alpha];
-    
-    //draw image
+
     [self drawAtPoint:CGPointMake(0.0f, reflectionOffset)];
-    
-    //capture resultant image
+
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    //return image
+
     return image;
 }
 
 - (UIImage *)imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur
 {
-    //get size
-    //CGSize border = CGSizeMake(fabsf(offset.width) + blur, fabsf(offset.height) + blur);
     CGSize border = CGSizeMake(fabs(offset.width) + blur, fabs(offset.height) + blur);
     
     CGSize size = CGSizeMake(self.size.width + border.width * 2.0f, self.size.height + border.height * 2.0f);
     
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    //set up shadow
     CGContextSetShadowWithColor(context, offset, blur, color.CGColor);
     
-    //draw with shadow
     [self drawAtPoint:CGPointMake(border.width, border.height)];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
 - (UIImage *)imageWithCornerRadius:(CGFloat)radius
 {
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    //clip image
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, 0.0f, radius);
     CGContextAddLineToPoint(context, 0.0f, self.size.height - radius);
@@ -656,66 +618,51 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     CGContextAddArc(context, radius, radius, radius, -M_PI / 2.0f, M_PI, 1);
     CGContextClip(context);
     
-    //draw image
     [self drawAtPoint:CGPointZero];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
 - (UIImage *)imageWithAlpha:(CGFloat)alpha
 {
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     
-    //draw with alpha
     [self drawAtPoint:CGPointZero blendMode:kCGBlendModeNormal alpha:alpha];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
 - (UIImage *)imageWithMask:(UIImage *)maskImage;
 {
-    //create drawing context
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    //apply mask
     CGContextClipToMask(context, CGRectMake(0.0f, 0.0f, self.size.width, self.size.height), maskImage.CGImage);
     
-    //draw image
     [self drawAtPoint:CGPointZero];
     
-    //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    //return image
     return image;
 }
 
 - (UIImage *)maskImageFromImageAlpha
 {
-    //get dimensions
     NSInteger width = CGImageGetWidth(self.CGImage);
     NSInteger height = CGImageGetHeight(self.CGImage);
     
-    //create alpha image
     NSInteger bytesPerRow = ((width + 3) / 4) * 4;
     void *data = calloc(bytesPerRow * height, sizeof(unsigned char *));
     CGContextRef context = CGBitmapContextCreate(data, width, height, 8, bytesPerRow, NULL, kCGImageAlphaOnly);
     CGContextDrawImage(context, CGRectMake(0.0f, 0.0f, width, height), self.CGImage);
     
-    //invert alpha pixels
     for (int y = 0; y < height; y++)
     {
         for (int x = 0; x < width; x++)
@@ -725,14 +672,12 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
         }
     }
     
-    //create mask image
     CGImageRef maskRef = CGBitmapContextCreateImage(context);
     CGContextRelease(context);
     UIImage *mask = [UIImage imageWithCGImage:maskRef];
     CGImageRelease(maskRef);
     free(data);
     
-    //return image
     return mask;
 }
 
@@ -803,9 +748,7 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 - (UIImage *)fixOrientation
 {
     if (self.imageOrientation == UIImageOrientationUp) return self;
-    
-    // We need to calculate the proper transformation to make the image upright.
-    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+
     CGAffineTransform transform = CGAffineTransformIdentity;
     
     switch (self.imageOrientation)
@@ -991,23 +934,18 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 /** 将图片旋转弧度radians */
 - (UIImage *)imageRotatedByRadians:(CGFloat)radians
 {
-    // calculate the size of the rotated view's containing box for our drawing space
     UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,self.size.width, self.size.height)];
     CGAffineTransform t = CGAffineTransformMakeRotation(radians);
     rotatedViewBox.transform = t;
     CGSize rotatedSize = rotatedViewBox.frame.size;
     
-    // Create the bitmap context
     UIGraphicsBeginImageContext(rotatedSize);
     CGContextRef bitmap = UIGraphicsGetCurrentContext();
     
-    // Move the origin to the middle of the image so we will rotate and scale around the center.
     CGContextTranslateCTM(bitmap, rotatedSize.width/2, rotatedSize.height/2);
     
-    //   // Rotate the image context
     CGContextRotateCTM(bitmap, radians);
     
-    // Now, draw the rotated/scaled image into the context
     CGContextScaleCTM(bitmap, 1.0, -1.0);
     CGContextDrawImage(bitmap, CGRectMake(-self.size.width / 2, -self.size.height / 2, self.size.width, self.size.height), [self CGImage]);
     

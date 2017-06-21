@@ -142,80 +142,6 @@
     return propertyNames;
 }
 
-- (NSArray *)propertiesInfo
-{
-    return [[self class] propertiesInfo];
-}
-
-+ (NSArray *)propertiesInfo
-{
-    NSMutableArray *propertieArray = [NSMutableArray array];
-    
-    unsigned int propertyCount;
-    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
-    
-    for (int i = 0; i < propertyCount; i++)
-    {
-        [propertieArray addObject:({
-            
-            NSDictionary *dictionary = [self dictionaryWithProperty:properties[i]];
-            
-            dictionary;
-        })];
-    }
-    
-    free(properties);
-    
-    return propertieArray;
-}
-
-+ (NSArray *)propertiesWithCodeFormat
-{
-    NSMutableArray *array = [NSMutableArray array];
-    
-    NSArray *properties = [[self class] propertiesInfo];
-    
-    for (NSDictionary *item in properties)
-    {
-        NSMutableString *format = ({
-            
-            NSMutableString *formatString = [NSMutableString stringWithFormat:@"@property "];
-            //attribute
-            NSArray *attribute = [item objectForKey:@"attribute"];
-            attribute = [attribute sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-                return [obj1 compare:obj2 options:NSNumericSearch];
-            }];
-            if (attribute && attribute.count > 0)
-            {
-                NSString *attributeStr = [NSString stringWithFormat:@"(%@)",[attribute componentsJoinedByString:@", "]];
-                
-                [formatString appendString:attributeStr];
-            }
-            
-            //type
-            NSString *type = [item objectForKey:@"type"];
-            if (type) {
-                [formatString appendString:@" "];
-                [formatString appendString:type];
-            }
-            
-            //name
-            NSString *name = [item objectForKey:@"name"];
-            if (name) {
-                [formatString appendString:@" "];
-                [formatString appendString:name];
-                [formatString appendString:@";"];
-            }
-            
-            formatString;
-        });
-        
-        [array addObject:format];
-    }
-    
-    return array;
-}
-
 -(NSArray*)methodList
 {
     u_int               count;
@@ -304,49 +230,6 @@
     [result sortedArrayUsingSelector:@selector(compare:)];
     
     return result;
-}
-
--(NSDictionary *)protocolList
-{
-    return [[self class]protocolList];
-}
-
-+ (NSDictionary *)protocolList
-{
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    
-    unsigned int count;
-    Protocol * __unsafe_unretained * protocols = class_copyProtocolList([self class], &count);
-    for (int i = 0; i < count; i++)
-    {
-        Protocol *protocol = protocols[i];
-        
-        NSString *protocolName = [NSString stringWithCString:protocol_getName(protocol) encoding:NSUTF8StringEncoding];
-        
-        NSMutableArray *superProtocolArray = ({
-            
-            NSMutableArray *array = [NSMutableArray array];
-            
-            unsigned int superProtocolCount;
-            Protocol * __unsafe_unretained * superProtocols = protocol_copyProtocolList(protocol, &superProtocolCount);
-            for (int ii = 0; ii < superProtocolCount; ii++)
-            {
-                Protocol *superProtocol = superProtocols[ii];
-                
-                NSString *superProtocolName = [NSString stringWithCString:protocol_getName(superProtocol) encoding:NSUTF8StringEncoding];
-                
-                [array addObject:superProtocolName];
-            }
-            free(superProtocols);
-            
-            array;
-        });
-        
-        [dictionary setObject:superProtocolArray forKey:protocolName];
-    }
-    free(protocols);
-    
-    return dictionary;
 }
 
 + (NSArray *)instanceVariable
@@ -602,31 +485,8 @@
     if (!strcmp(cString, @encode(BOOL)))
         return @"BOOL";
     
-    //    NSDictionary *typeDic = @{@"c":@"char",
-    //                              @"i":@"int",
-    //                              @"s":@"short",
-    //                              @"l":@"long",
-    //                              @"q":@"long long",
-    //                              @"C":@"unsigned char",
-    //                              @"I":@"unsigned int",
-    //                              @"S":@"unsigned short",
-    //                              @"L":@"unsigned long",
-    //                              @"Q":@"unsigned long long",
-    //                              @"f":@"float",
-    //                              @"d":@"double",
-    //                              @"B":@"BOOL",
-    //                              @"v":@"void",
-    //                              @"*":@"char *",
-    //                              @"@":@"id",
-    //                              @"#":@"Class",
-    //                              @":":@"SEL",
-    //                              };
-    
-    //@TODO: do handle bitmasks
     NSString *result = [NSString stringWithCString:cString encoding:NSUTF8StringEncoding];
-    //    if ([typeDic objectForKey:result]) {
-    //        return [typeDic objectForKey:result];
-    //    }
+
     if ([[result substringToIndex:1] isEqualToString:@"@"] && [result rangeOfString:@"?"].location == NSNotFound) {
         result = [[result substringWithRange:NSMakeRange(2, result.length - 3)] stringByAppendingString:@"*"];
     } else

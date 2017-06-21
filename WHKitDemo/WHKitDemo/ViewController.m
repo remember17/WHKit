@@ -32,7 +32,8 @@ static NSString *cellID=@"CellID";
     
     [self setupDownButton];
     
-    NSLog(@"%d",[@"17385957958" isMobileNumberClassification]);
+    // 本月的第一天距离现在多久
+    NSLog(@"%@",[[NSDate begindayOfMonth:[NSDate new]] timeInfo]);
 }
 
 

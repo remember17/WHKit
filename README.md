@@ -14,12 +14,14 @@
 
 ### 这个文件中包含了如下内容
 ```objc
+/************* 分类 *************/
 #import "NSArray+WHArray.h"
 #import "NSDate+WHDate.h"
 #import "NSDictionary+WHDictionary.h"
 #import "NSFileManager+WHFileManager.h"
 #import "NSNumber+WHNumber.h"
 #import "NSObject+WHObject.h"
+#import "NSObject+WHRuntime.h"
 #import "NSString+WHString.h"
 #import "NSTimer+WHTimer.h"
 #import "UIBarButtonItem+WHBarButtonItem.h"
@@ -35,9 +37,14 @@
 #import "UIView+WHView.h"
 #import "UIViewController+WHVC.h"
 #import "WHMethods.h"
+#import "SerializeKit.h"
+/******************************/
 
-* 还包含一个好用的宏文件
+
+
+/************* 宏 *************/
 #import "WHMacro.h"
+/******************************/
 ```
 
 ### 例子 Example

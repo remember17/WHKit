@@ -34,6 +34,7 @@
 		68C2098E1EF2173100206F28 /* UIView+WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209751EF2173100206F28 /* UIView+WHView.m */; };
 		68C2098F1EF2173100206F28 /* UIViewController+WHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209771EF2173100206F28 /* UIViewController+WHVC.m */; };
 		68C209901EF2173100206F28 /* WHMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2097B1EF2173100206F28 /* WHMethods.m */; };
+		E8DBFB8E1EFA2C7F008EBED5 /* NSObject+WHRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DBFB8D1EFA2C7F008EBED5 /* NSObject+WHRuntime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,8 @@
 		68C2097B1EF2173100206F28 /* WHMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMethods.m; sourceTree = "<group>"; };
 		68C209911EF2173F00206F28 /* WHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHKit.h; sourceTree = "<group>"; };
 		E8B0A65B1EF28E7C0064ECBF /* SerializeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializeKit.h; sourceTree = "<group>"; };
+		E8DBFB8C1EFA2C7F008EBED5 /* NSObject+WHRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WHRuntime.h"; sourceTree = "<group>"; };
+		E8DBFB8D1EFA2C7F008EBED5 /* NSObject+WHRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHRuntime.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +164,8 @@
 				68C209591EF2173100206F28 /* NSNumber+WHNumber.m */,
 				68C2095A1EF2173100206F28 /* NSObject+WHObject.h */,
 				68C2095B1EF2173100206F28 /* NSObject+WHObject.m */,
+				E8DBFB8C1EFA2C7F008EBED5 /* NSObject+WHRuntime.h */,
+				E8DBFB8D1EFA2C7F008EBED5 /* NSObject+WHRuntime.m */,
 				68C2095C1EF2173100206F28 /* NSString+WHString.h */,
 				68C2095D1EF2173100206F28 /* NSString+WHString.m */,
 				68C2095E1EF2173100206F28 /* NSTimer+WHTimer.h */,
@@ -291,6 +296,7 @@
 				68C2097D1EF2173100206F28 /* NSDate+WHDate.m in Sources */,
 				68C2098D1EF2173100206F28 /* UITableView+WHTableView.m in Sources */,
 				68C2093A1EF216E500206F28 /* main.m in Sources */,
+				E8DBFB8E1EFA2C7F008EBED5 /* NSObject+WHRuntime.m in Sources */,
 				68C209871EF2173100206F28 /* UIDevice+WHDevice.m in Sources */,
 				68C2097E1EF2173100206F28 /* NSDictionary+WHDictionary.m in Sources */,
 			);

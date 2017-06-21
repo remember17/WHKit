@@ -22,7 +22,6 @@
 /** 并入一个NSDictionary */
 - (NSDictionary *)dictionaryByMergingWith:(NSDictionary *)dict;
 
-
 - (NSDictionary *)dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary;
 
 - (NSDictionary *)dictionaryByRemovingEntriesWithKeys:(NSSet *)keys;
