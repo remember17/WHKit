@@ -395,7 +395,7 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     {
         return self;
     }
-
+    
     CGFloat aspect = self.size.width / self.size.height;
     if (size.width / aspect >= size.height)
     {
@@ -548,37 +548,37 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
     CGFloat height = ceil(self.size.height * scale);
     CGSize size = CGSizeMake(self.size.width, height);
     CGRect bounds = CGRectMake(0.0f, 0.0f, size.width, size.height);
-
+    
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
-
+    
     CGContextClipToMask(context, bounds, [[self class] gradientMask]);
-
+    
     CGContextScaleCTM(context, 1.0f, -1.0f);
     CGContextTranslateCTM(context, 0.0f, -self.size.height);
     [self drawInRect:CGRectMake(0.0f, 0.0f, self.size.width, self.size.height)];
-
+    
     UIImage *reflection = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     return reflection;
 }
 
 - (UIImage *)imageWithReflectionWithScale:(CGFloat)scale gap:(CGFloat)gap alpha:(CGFloat)alpha
 {
-
+    
     UIImage *reflection = [self reflectedImageWithScale:scale];
     CGFloat reflectionOffset = reflection.size.height + gap;
-
+    
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(self.size.width, self.size.height + reflectionOffset * 2.0f), NO, 0.0f);
- 
+    
     [reflection drawAtPoint:CGPointMake(0.0f, reflectionOffset + self.size.height + gap) blendMode:kCGBlendModeNormal alpha:alpha];
-
+    
     [self drawAtPoint:CGPointMake(0.0f, reflectionOffset)];
-
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     return image;
 }
 
@@ -748,7 +748,7 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 - (UIImage *)fixOrientation
 {
     if (self.imageOrientation == UIImageOrientationUp) return self;
-
+    
     CGAffineTransform transform = CGAffineTransformIdentity;
     
     switch (self.imageOrientation)
@@ -1053,5 +1053,34 @@ static CGRect swapWidthAndHeight(CGRect rect)
     return image;
 }
 
+
+- (UIImage *)wh_imageWithTitle:(NSString *)title fontSize:(CGFloat)fontSize titleColor:(UIColor *)titleColor {
+    //画布大小
+    CGSize size=CGSizeMake(self.size.width,self.size.height);
+    //创建一个基于位图的上下文
+    UIGraphicsBeginImageContextWithOptions(size,NO,0.0);//opaque:NO  scale:0.0
+    
+    [self drawAtPoint:CGPointMake(0.0,0.0)];
+    
+    //文字居中显示在画布上
+    NSMutableParagraphStyle* paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.alignment=NSTextAlignmentCenter;//文字居中
+    
+    //计算文字所占的size,文字居中显示在画布上
+    CGSize sizeText=[title boundingRectWithSize:self.size options:NSStringDrawingUsesLineFragmentOrigin
+                                     attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}context:nil].size;
+    CGFloat width = self.size.width;
+    CGFloat height = self.size.height;
+    
+    CGRect rect = CGRectMake((width-sizeText.width)/2, (height-sizeText.height)/2, sizeText.width, sizeText.height);
+    //绘制文字
+    [title drawInRect:rect withAttributes:@{ NSFontAttributeName:[UIFont systemFontOfSize:fontSize],NSForegroundColorAttributeName:titleColor,NSParagraphStyleAttributeName:paragraphStyle}];
+    
+    //返回绘制的新图形
+    UIImage *newImage= UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 @end

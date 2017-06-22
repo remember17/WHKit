@@ -21,8 +21,11 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 //高效添加圆角图片
 - (UIImage*)wh_imageAddCornerWithRadius:(CGFloat)radius andSize:(CGSize)size;
 
-//将图片截成圆形图片
+//圆形图片
 + (UIImage *)wh_GetRoundImagewithImage:(UIImage *)image;
+
+//在图片上加居中的文字
+- (UIImage *)wh_imageWithTitle:(NSString *)title fontSize:(CGFloat)fontSize titleColor:(UIColor *)titleColor;
 
 /**
  取图片某一像素点的颜色
