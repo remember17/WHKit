@@ -50,7 +50,7 @@ static NSString *cellID=@"CellID";
     [downButton wh_addActionHandler:^{
         [self.topButton removeFromSuperview];
         [self setupTopButton];
-        //滑动到底部
+        //滑到底部
         [tableV scrollToBottom];
     }];
 }

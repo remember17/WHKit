@@ -17,7 +17,6 @@
     for (id element in enumerator) {
         [arrayTemp addObject:element];
     }
-    
     return arrayTemp;
 }
 
