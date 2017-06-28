@@ -1,4 +1,7 @@
 
+// http://www.jianshu.com/p/c935314b078e
+// https://github.com/remember17
+
 #ifndef SerializeKit_h
 #define SerializeKit_h
 #import <objc/runtime.h>

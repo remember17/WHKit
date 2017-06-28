@@ -127,15 +127,10 @@
 		68C209371EF216E500206F28 /* WHKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				68C2094F1EF2171E00206F28 /* WHKit */,
 				68C2093E1EF216E500206F28 /* ViewController.h */,
 				68C2093F1EF216E500206F28 /* ViewController.m */,
-				68C2094F1EF2171E00206F28 /* WHKit */,
-				68C2093B1EF216E500206F28 /* AppDelegate.h */,
-				68C2093C1EF216E500206F28 /* AppDelegate.m */,
-				68C209411EF216E500206F28 /* Main.storyboard */,
-				68C209441EF216E500206F28 /* Assets.xcassets */,
-				68C209461EF216E500206F28 /* LaunchScreen.storyboard */,
-				68C209491EF216E500206F28 /* Info.plist */,
+				E83791821F0389A400DAF361 /* Others */,
 				68C209381EF216E500206F28 /* Supporting Files */,
 			);
 			path = WHKitDemo;
@@ -201,6 +196,19 @@
 				68C209911EF2173F00206F28 /* WHKit.h */,
 			);
 			path = WHKit;
+			sourceTree = "<group>";
+		};
+		E83791821F0389A400DAF361 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				68C2093B1EF216E500206F28 /* AppDelegate.h */,
+				68C2093C1EF216E500206F28 /* AppDelegate.m */,
+				68C209411EF216E500206F28 /* Main.storyboard */,
+				68C209441EF216E500206F28 /* Assets.xcassets */,
+				68C209461EF216E500206F28 /* LaunchScreen.storyboard */,
+				68C209491EF216E500206F28 /* Info.plist */,
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
