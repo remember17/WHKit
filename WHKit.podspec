@@ -2,7 +2,7 @@
       
       s.name         = "WHKit" 
        
-      s.version      = "1.0.2"  
+      s.version      = "1.2.7"  
       s.summary      = "Make development easier."  
       s.homepage     = "https://github.com/remember17/WHKit"  
       s.license      = "MIT"  
