@@ -34,6 +34,7 @@
 		68C2098E1EF2173100206F28 /* UIView+WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209751EF2173100206F28 /* UIView+WHView.m */; };
 		68C2098F1EF2173100206F28 /* UIViewController+WHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209771EF2173100206F28 /* UIViewController+WHVC.m */; };
 		68C209901EF2173100206F28 /* WHMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2097B1EF2173100206F28 /* WHMethods.m */; };
+		E8D95BAE1F0E2892003E2804 /* CALayer+WHLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */; };
 		E8DBFB8E1EFA2C7F008EBED5 /* NSObject+WHRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DBFB8D1EFA2C7F008EBED5 /* NSObject+WHRuntime.m */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,8 @@
 		68C2097B1EF2173100206F28 /* WHMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMethods.m; sourceTree = "<group>"; };
 		68C209911EF2173F00206F28 /* WHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHKit.h; sourceTree = "<group>"; };
 		E8B0A65B1EF28E7C0064ECBF /* SerializeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializeKit.h; sourceTree = "<group>"; };
+		E8D95BAC1F0E2892003E2804 /* CALayer+WHLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+WHLayer.h"; sourceTree = "<group>"; };
+		E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+WHLayer.m"; sourceTree = "<group>"; };
 		E8DBFB8C1EFA2C7F008EBED5 /* NSObject+WHRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WHRuntime.h"; sourceTree = "<group>"; };
 		E8DBFB8D1EFA2C7F008EBED5 /* NSObject+WHRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHRuntime.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +196,8 @@
 				68C209791EF2173100206F28 /* WHMacro.h */,
 				68C2097A1EF2173100206F28 /* WHMethods.h */,
 				68C2097B1EF2173100206F28 /* WHMethods.m */,
+				E8D95BAC1F0E2892003E2804 /* CALayer+WHLayer.h */,
+				E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */,
 				68C209911EF2173F00206F28 /* WHKit.h */,
 			);
 			path = WHKit;
@@ -284,6 +289,7 @@
 			files = (
 				68C209811EF2173100206F28 /* NSObject+WHObject.m in Sources */,
 				68C209891EF2173100206F28 /* UIImageView+WHImageView.m in Sources */,
+				E8D95BAE1F0E2892003E2804 /* CALayer+WHLayer.m in Sources */,
 				68C2098E1EF2173100206F28 /* UIView+WHView.m in Sources */,
 				68C209831EF2173100206F28 /* NSTimer+WHTimer.m in Sources */,
 				68C209861EF2173100206F28 /* UIColor+WHColor.m in Sources */,
