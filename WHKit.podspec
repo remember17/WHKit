@@ -1,7 +1,7 @@
     Pod::Spec.new do |s|  
       
       s.name         = "WHKit" 
-      s.version      = "1.2.8"  
+      s.version      = "1.2.9"  
       s.summary      = "Make development easier."  
       s.homepage     = "https://github.com/remember17/WHKit"  
       s.license      = "MIT"  
