@@ -34,6 +34,7 @@
 		68C2098E1EF2173100206F28 /* UIView+WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209751EF2173100206F28 /* UIView+WHView.m */; };
 		68C2098F1EF2173100206F28 /* UIViewController+WHVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209771EF2173100206F28 /* UIViewController+WHVC.m */; };
 		68C209901EF2173100206F28 /* WHMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2097B1EF2173100206F28 /* WHMethods.m */; };
+		E8B351181F0F1485007A2399 /* UIAlertController+WHAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B351171F0F1485007A2399 /* UIAlertController+WHAlert.m */; };
 		E8D95BAE1F0E2892003E2804 /* CALayer+WHLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */; };
 		E8DBFB8E1EFA2C7F008EBED5 /* NSObject+WHRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DBFB8D1EFA2C7F008EBED5 /* NSObject+WHRuntime.m */; };
 /* End PBXBuildFile section */
@@ -94,6 +95,8 @@
 		68C2097B1EF2173100206F28 /* WHMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMethods.m; sourceTree = "<group>"; };
 		68C209911EF2173F00206F28 /* WHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHKit.h; sourceTree = "<group>"; };
 		E8B0A65B1EF28E7C0064ECBF /* SerializeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializeKit.h; sourceTree = "<group>"; };
+		E8B351161F0F1485007A2399 /* UIAlertController+WHAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+WHAlert.h"; sourceTree = "<group>"; };
+		E8B351171F0F1485007A2399 /* UIAlertController+WHAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+WHAlert.m"; sourceTree = "<group>"; };
 		E8D95BAC1F0E2892003E2804 /* CALayer+WHLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+WHLayer.h"; sourceTree = "<group>"; };
 		E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+WHLayer.m"; sourceTree = "<group>"; };
 		E8DBFB8C1EFA2C7F008EBED5 /* NSObject+WHRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WHRuntime.h"; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 				68C2097B1EF2173100206F28 /* WHMethods.m */,
 				E8D95BAC1F0E2892003E2804 /* CALayer+WHLayer.h */,
 				E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */,
+				E8B351161F0F1485007A2399 /* UIAlertController+WHAlert.h */,
+				E8B351171F0F1485007A2399 /* UIAlertController+WHAlert.m */,
 				68C209911EF2173F00206F28 /* WHKit.h */,
 			);
 			path = WHKit;
@@ -303,6 +308,7 @@
 				68C2097F1EF2173100206F28 /* NSFileManager+WHFileManager.m in Sources */,
 				68C209801EF2173100206F28 /* NSNumber+WHNumber.m in Sources */,
 				68C2098F1EF2173100206F28 /* UIViewController+WHVC.m in Sources */,
+				E8B351181F0F1485007A2399 /* UIAlertController+WHAlert.m in Sources */,
 				68C209881EF2173100206F28 /* UIImage+WHImage.m in Sources */,
 				68C2093D1EF216E500206F28 /* AppDelegate.m in Sources */,
 				68C2098C1EF2173100206F28 /* UIScrollView+WHScrollView.m in Sources */,

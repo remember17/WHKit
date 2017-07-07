@@ -39,6 +39,7 @@
 #import "WHMethods.h"
 #import "SerializeKit.h"
 #import "CALayer+WHLayer.h"
+#import "UIAlertController+WHAlert.h"
 /******************************/
 
 
