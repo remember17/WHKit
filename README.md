@@ -4,7 +4,7 @@
 ## 如何使用 
 只需要导入头文件: #import "WHKit.h".
 
-pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.2.9'
+pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.0'
 
 ### 使用方法 
 ```objc
@@ -38,6 +38,7 @@ pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.2.9'
 #import "UIViewController+WHVC.h"
 #import "WHMethods.h"
 #import "SerializeKit.h"
+#import "WHSingleton.h"
 #import "CALayer+WHLayer.h"
 #import "UIAlertController+WHAlert.h"
 /******************************/

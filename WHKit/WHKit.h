@@ -30,6 +30,7 @@
 #import "UIViewController+WHVC.h"
 #import "WHMethods.h"
 #import "SerializeKit.h"
+#import "WHSingleton.h"
 #import "CALayer+WHLayer.h"
 #import "UIAlertController+WHAlert.h"
 /******************************/

@@ -94,6 +94,7 @@
 		68C2097A1EF2173100206F28 /* WHMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMethods.h; sourceTree = "<group>"; };
 		68C2097B1EF2173100206F28 /* WHMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMethods.m; sourceTree = "<group>"; };
 		68C209911EF2173F00206F28 /* WHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHKit.h; sourceTree = "<group>"; };
+		E83DE6C81F219213005DBE0F /* WHSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHSingleton.h; sourceTree = "<group>"; };
 		E8B0A65B1EF28E7C0064ECBF /* SerializeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializeKit.h; sourceTree = "<group>"; };
 		E8B351161F0F1485007A2399 /* UIAlertController+WHAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+WHAlert.h"; sourceTree = "<group>"; };
 		E8B351171F0F1485007A2399 /* UIAlertController+WHAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+WHAlert.m"; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 				E8D95BAD1F0E2892003E2804 /* CALayer+WHLayer.m */,
 				E8B351161F0F1485007A2399 /* UIAlertController+WHAlert.h */,
 				E8B351171F0F1485007A2399 /* UIAlertController+WHAlert.m */,
+				E83DE6C81F219213005DBE0F /* WHSingleton.h */,
 				68C209911EF2173F00206F28 /* WHKit.h */,
 			);
 			path = WHKit;
