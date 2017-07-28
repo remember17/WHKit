@@ -53,8 +53,7 @@ pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.0'
 ```objc
 //点击按钮
 [button wh_addActionHandler:^{
-	//点击按钮之后的事件 do something
-	NSLog(@"我被点击了");
+  NSLog(@"我被点击了");
 }];
 
 //快速创建单例
