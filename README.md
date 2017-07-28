@@ -44,7 +44,6 @@ pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.0'
 /******************************/
 
 
-
 /************* 宏 *************/
 #import "WHMacro.h"
 /******************************/
@@ -53,10 +52,14 @@ pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.0'
 ### 例子 Example
 ```objc
 //点击按钮
-    [button wh_addActionHandler:^{
-        //点击按钮之后的事件 do something
-        NSLog(@"我被点击了");
-    }];
+[button wh_addActionHandler:^{
+	//点击按钮之后的事件 do something
+	NSLog(@"我被点击了");
+}];
+
+//快速创建单例
+WHSingletonH(ClassName)
+WHSingletonM(ClassName)
 
 //快速创建一个Button, 其中KBLACK_COLOR是颜色的宏
 UIButton *button = [UIButton wh_buttonWithTitle:@"Test" backColor:KBLACK_COLOR backImageName:nil titleColor:KWHITE_COLOR fontSize:14 frame:CGRectMake(100, 100, 50, 50) cornerRadius:7];
