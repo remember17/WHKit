@@ -4,7 +4,7 @@
 ## 如何使用 
 只需要导入头文件: #import "WHKit.h".
 
-pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.0'
+pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.1'
 
 ### 使用方法 
 ```objc
