@@ -11,6 +11,38 @@
 @interface NSDate (WHDate)
 
 /**
+ * 根据日期返回字符串
+ */
++ (NSString *)stringWithDate:(NSDate *)date format:(NSString *)format;
+- (NSString *)stringWithFormat:(NSString *)format;
++ (NSDate *)dateWithString:(NSString *)string format:(NSString *)format;
+
+/**
+ * 根据TimeInterval获取时间字符串,带有时区偏移
+ */
++(NSString *)stringWithTimeInterval:(unsigned int)time Formatter:(NSString *)format;
+/**
+ * 根据字符串和格式获取TimeInterval时间,带有时区偏移
+ */
++(NSTimeInterval )timeIntervalFromString:(NSString *)timeStr Formatter:(NSString *)format;
+
+/**
+ * 当前TimeInterval时间,带有时区偏移
+ */
++(NSTimeInterval )now;
+
+/**
+ * yyyy-MM-dd HH:mm:ss格式的当前时间
+ */
++(NSString *)stringNowWithFullFormatter;
+
+/**
+ * 自定义格式的当前时间
+ */
++(NSString *)stringNowWithFormatter:(NSString *)format;
+
+
+/**
  * 获取日、月、年、小时、分钟、秒
  */
 - (NSUInteger)day;
@@ -142,13 +174,6 @@
  *  获得NSString的月份
  */
 + (NSString *)monthWithMonthNumber:(NSInteger)month;
-
-/**
- * 根据日期返回字符串
- */
-+ (NSString *)stringWithDate:(NSDate *)date format:(NSString *)format;
-- (NSString *)stringWithFormat:(NSString *)format;
-+ (NSDate *)dateWithString:(NSString *)string format:(NSString *)format;
 
 /**
  * 获取指定月份的天数

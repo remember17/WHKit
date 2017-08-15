@@ -533,4 +533,46 @@
                                      options:0];
 }
 
++(NSString *)stringNowWithFullFormatter {
+    NSDate *now=[NSDate date];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *str=[formatter stringFromDate:now];
+    return str;
+}
+
++(NSString *)stringNowWithFormatter:(NSString *)format {
+    NSDate *now=[NSDate date];
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:format];
+    NSString *str=[formatter stringFromDate:now];
+    return str;
+}
+
++(NSString *)stringWithTimeInterval:(unsigned int)time Formatter:(NSString *)format {
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:format];
+    NSTimeZone *localtimezone=[NSTimeZone systemTimeZone];
+    NSInteger offset=[localtimezone secondsFromGMT];
+    NSDate *date=[NSDate dateWithTimeIntervalSince1970:(time-offset)];
+    NSString *timeStr=[formatter stringFromDate:date];
+    return timeStr;
+}
+
++(NSTimeInterval )now {
+    NSDate *now = [NSDate date];
+    NSTimeZone *zone=[NSTimeZone systemTimeZone];
+    NSInteger offset=[zone secondsFromGMT];
+    return  [now timeIntervalSince1970]+offset;
+}
+
++(NSTimeInterval )timeIntervalFromString:(NSString *)timeStr Formatter:(NSString *)format {
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+    [formatter setDateFormat:format];
+    NSDate *date=[formatter dateFromString:timeStr];
+    NSTimeZone *zone=[NSTimeZone systemTimeZone];
+    NSInteger offset=[zone secondsFromGMT];
+    return  ([date timeIntervalSince1970]+offset);
+}
+
 @end
