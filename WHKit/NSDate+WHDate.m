@@ -214,25 +214,25 @@
 
 + (NSString *)dayFromWeekday:(NSDate *)date {
     switch([date weekday]) {
-        case 1:
+        case 7:
             return @"星期天";
             break;
-        case 2:
+        case 1:
             return @"星期一";
             break;
-        case 3:
+        case 2:
             return @"星期二";
             break;
-        case 4:
+        case 3:
             return @"星期三";
             break;
-        case 5:
+        case 4:
             return @"星期四";
             break;
-        case 6:
+        case 5:
             return @"星期五";
             break;
-        case 7:
+        case 6:
             return @"星期六";
             break;
         default:
