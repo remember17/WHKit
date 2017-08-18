@@ -204,7 +204,7 @@
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [gregorian components:(NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitWeekday) fromDate:date];
     NSInteger weekday = [comps weekday];
-    
+    weekday == 1 ? weekday = 7 : weekday--;
     return weekday;
 }
 
