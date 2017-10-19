@@ -1,15 +1,15 @@
 # WHKit
 分类,开发小工具
 
-## 如何使用 
-只需要导入头文件: #import "WHKit.h".
-
-pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.3'
-
 ### 使用方法 
 ```objc
- a>> 直接在本网页下载使用：#import "WHKit.h"
- b>> 或者利用CocoaPods安装到项目中：#import <WHKit.h>
+pod 'WHKit', '~>1.3.4'
+如果没找到, 请先pod setup
+
+也可以直接在本网页下载，然后把WHKit文件加入到工程中使用
+
+在使用的地方：#import "WHKit.h"
+推荐直接在pch文件中：#import "WHKit.h"
 ```
 
 ### 这个文件中包含了如下内容
@@ -56,6 +56,9 @@ pod WHKit 如果没找到, 请先pod setup, 然后再pod 'WHKit', '~>1.3.3'
 [button wh_addActionHandler:^{
   NSLog(@"我被点击了");
 }];
+
+//是否为iPhone X的宏，返回BOOL值
+#define kIs_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 //快速创建单例
 WHSingletonH(ClassName)

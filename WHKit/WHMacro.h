@@ -13,12 +13,16 @@
 #define NSLog(...)
 #endif
 
+//是否为iPhone X
+#define kIs_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
 //APP版本号
 #define KAPP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
 //系统版本号
 #define KSYSTEM_VERSION [[UIDevice currentDevice] systemVersion]
 
 #define KTOP_HEIGHT 64
+#define KTop_Height_X 88
 
 //黑色和白色
 #define KWHITE_COLOR [UIColor whiteColor]
