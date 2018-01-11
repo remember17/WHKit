@@ -26,7 +26,7 @@ static NSString *cellID=@"CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*******************更多Category请查看WHCategories文件*******************/
+    /*******************更多Category请查看WHKit文件*******************/
     
     [self setupTableView];
     
