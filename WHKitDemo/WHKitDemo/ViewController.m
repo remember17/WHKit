@@ -15,6 +15,8 @@
 
 @property (nonatomic, weak) UIButton *topButton;
 
+@property (nonatomic, strong) UITableView *tableview;
+
 @end
 
 static NSString *cellID=@"CellID";
@@ -36,49 +38,51 @@ static NSString *cellID=@"CellID";
     NSLog(@"%@",[[NSDate begindayOfMonth:[NSDate new]] timeInfo]);
 }
 
-
 #pragma mark - Example
 - (void)setupDownButton {
     
     //快速创建button
-    UIButton *downButton = [UIButton wh_buttonWithTitle:@"Down" backColor:KBLACK_COLOR backImageName:nil titleColor:KWHITE_COLOR fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
+    UIButton *downButton = [UIButton wh_buttonWithTitle:@"Down" backColor:kBlackColor backImageName:nil titleColor:kWhiteColor fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
     
     [self.view addSubview:downButton];
     self.downButton = downButton;
     
     //按钮点击
+    @weakify(self); // 处理循环引用
     [downButton wh_addActionHandler:^{
+        @strongify(self);
         [self.topButton removeFromSuperview];
         [self setupTopButton];
         //滑到底部
-        [tableV scrollToBottom];
+        [self.tableview scrollToBottom];
     }];
 }
 
 - (void)setupTopButton {
     
-    UIButton *topButton = [UIButton wh_buttonWithTitle:@"Top" backColor:KBLACK_COLOR backImageName:nil titleColor:KWHITE_COLOR fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
+    UIButton *topButton = [UIButton wh_buttonWithTitle:@"Top" backColor:kBlackColor backImageName:nil titleColor:kWhiteColor fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
     
     [self.view addSubview:topButton];
     self.topButton = topButton;
     
+    @weakify(self); // 处理循环引用
     [topButton wh_addActionHandler:^{
+        @strongify(self);
         [self.downButton removeFromSuperview];
         [self setupDownButton];
-        [tableV scrollToTop];
+        [self.tableview scrollToTop];
     }];
 }
 
 #pragma mark - TableView
 - (void)setupTableView{
-    tableV=[[UITableView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-    [self.view addSubview:tableV];
-    tableV.dataSource = self;
-    tableV.delegate = self;
-    [tableV registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    
+    _tableview=[[UITableView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    [self.view addSubview:_tableview];
+    _tableview.dataSource = self;
+    _tableview.delegate = self;
+    [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
     UIView *emptyView = [UIView new];
-    tableV.tableFooterView = emptyView;
+    _tableview.tableFooterView = emptyView;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -90,7 +94,6 @@ static NSString *cellID=@"CellID";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

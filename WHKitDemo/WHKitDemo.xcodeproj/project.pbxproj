@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		688FFAF520CF60330089DE7B /* Foundation+Safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 688FFAF420CF60330089DE7B /* Foundation+Safe.m */; };
 		68C2093A1EF216E500206F28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C209391EF216E500206F28 /* main.m */; };
 		68C2093D1EF216E500206F28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2093C1EF216E500206F28 /* AppDelegate.m */; };
 		68C209401EF216E500206F28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C2093F1EF216E500206F28 /* ViewController.m */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		688FFAF320CF60330089DE7B /* Foundation+Safe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foundation+Safe.h"; sourceTree = "<group>"; };
+		688FFAF420CF60330089DE7B /* Foundation+Safe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Safe.m"; sourceTree = "<group>"; };
 		68C209351EF216E500206F28 /* WHKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WHKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68C209391EF216E500206F28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		68C2093B1EF216E500206F28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				E8B351171F0F1485007A2399 /* UIAlertController+WHAlert.m */,
 				E83DE6C81F219213005DBE0F /* WHSingleton.h */,
 				68C209911EF2173F00206F28 /* WHKit.h */,
+				688FFAF320CF60330089DE7B /* Foundation+Safe.h */,
+				688FFAF420CF60330089DE7B /* Foundation+Safe.m */,
 			);
 			path = WHKit;
 			sourceTree = "<group>";
@@ -249,7 +254,7 @@
 		68C2092D1EF216E500206F28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = remember17;
 				TargetAttributes = {
 					68C209341EF216E500206F28 = {
@@ -307,6 +312,7 @@
 				68C209901EF2173100206F28 /* WHMethods.m in Sources */,
 				68C2098A1EF2173100206F28 /* UILabel+WHLabel.m in Sources */,
 				68C2097C1EF2173100206F28 /* NSArray+WHArray.m in Sources */,
+				688FFAF520CF60330089DE7B /* Foundation+Safe.m in Sources */,
 				68C2097F1EF2173100206F28 /* NSFileManager+WHFileManager.m in Sources */,
 				68C209801EF2173100206F28 /* NSNumber+WHNumber.m in Sources */,
 				68C2098F1EF2173100206F28 /* UIViewController+WHVC.m in Sources */,
@@ -356,15 +362,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -405,15 +419,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

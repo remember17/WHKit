@@ -3,7 +3,7 @@
 
 ### 使用方法 
 ```objc
-pod 'WHKit', '~>1.3.4'
+pod 'WHKit', '~>1.3.5'
 如果没找到, 请先pod setup
 
 也可以直接在本网页下载，然后把WHKit文件加入到工程中使用
@@ -41,6 +41,7 @@ pod 'WHKit', '~>1.3.4'
 #import "WHSingleton.h"
 #import "CALayer+WHLayer.h"
 #import "UIAlertController+WHAlert.h"
+#import "Foundation+Safe.h"
 /******************************/
 
 

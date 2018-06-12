@@ -13,11 +13,9 @@
 - (NSArray *)wh_reverseArray {
     NSMutableArray *arrayTemp = [NSMutableArray arrayWithCapacity:[self count]];
     NSEnumerator *enumerator = [self reverseObjectEnumerator];
-    
     for (id element in enumerator) {
         [arrayTemp addObject:element];
     }
-    
     return arrayTemp;
 }
 

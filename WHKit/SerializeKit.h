@@ -6,7 +6,7 @@
 #define SerializeKit_h
 #import <objc/runtime.h>
 
-#define SERIALIZE_CODER_DECODER()     \
+#define kSerialize_Coder_Decoder()     \
 \
 - (id)initWithCoder:(NSCoder *)coder    \
 {   \
@@ -69,7 +69,7 @@ cls = class_getSuperclass(cls); \
 }
 
 
-#define SERIALIZE_COPY_WITH_ZONE()  \
+#define kSerialize_Copy_With_Zone()  \
 \
   \
 - (id)copyWithZone:(NSZone *)zone   \
@@ -105,7 +105,7 @@ return copy;    \
 }
 
 
-#define SERIALIZE_DESCRIPTION() \
+#define kSerialize_Description() \
 \
 \
 - (NSString *)description   \
@@ -140,7 +140,7 @@ return despStr; \
 }
 
 /* 归档 */
-#define SERIALIZE_ARCHIVE(__objToBeArchived__, __key__, __filePath__)    \
+#define kSerialize_Archive(__objToBeArchived__, __key__, __filePath__)    \
 \
 NSMutableData *data = [NSMutableData data]; \
 NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];   \
@@ -150,7 +150,7 @@ NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableDa
 
 
 /* 解归档 */
-#define SERIALIZE_UNARCHIVE(__objToStoreData__, __key__, __filePath__)   \
+#define kSerialize_Unarchive(__objToStoreData__, __key__, __filePath__)   \
 NSMutableData *dedata = [NSMutableData dataWithContentsOfFile:__filePath__]; \
 NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:dedata];  \
 __objToStoreData__ = [unarchiver decodeObjectForKey:__key__];  \

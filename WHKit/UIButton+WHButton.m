@@ -48,7 +48,7 @@ NSString const *UIButton_badgeValueKey = @"UIButton_badgeValueKey";
 
 
 
-- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)())finishBlock;
+- (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)(void))finishBlock;
 {
     __block NSInteger timeOut = timeout;
     

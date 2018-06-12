@@ -18,7 +18,7 @@
     
     self.window.rootViewController=[ViewController new];
     
-    self.window.backgroundColor=KWHITE_COLOR;
+    self.window.backgroundColor=kWhiteColor;
     
     [self.window makeKeyAndVisible];
     

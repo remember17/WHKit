@@ -33,6 +33,7 @@
 #import "WHSingleton.h"
 #import "CALayer+WHLayer.h"
 #import "UIAlertController+WHAlert.h"
+#import "Foundation+Safe.h"
 /******************************/
 
 

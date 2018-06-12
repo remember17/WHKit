@@ -156,6 +156,13 @@
 + (NSString *)dayFromWeekday:(NSDate *)date;
 
 /**
+ 获取阴历
+
+ @return 当天阴历String
+ */
+- (NSString*)lunar;
+
+/**
  *  日期是否相等
  */
 - (BOOL)isSameDay:(NSDate *)anotherDate;
