@@ -6,15 +6,13 @@
 //  Copyright © 2017年 remember17. All rights reserved.
 //  http://www.jianshu.com/p/c935314b078e
 
+
 //NSLog
 #ifdef DEBUG
 #define NSLog(...) NSLog(@"%s 第%d行: %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
 #define NSLog(...)
 #endif
-
-//是否为iPhone X
-#define kIs_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 
 //APP版本号
 #define KAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
@@ -154,3 +152,19 @@ sizeWithFont:font constrainedToSize:maxSize] : CGSizeZero;
 #define kBoldFont(FONTSIZE)      [UIFont boldSystemFontOfSize:FONTSIZE]
 #define kSystemFont(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]
 #define kFont(NAME,FONTSIZE)     [UIFont fontWithName:(NAME) size:(FONTSIZE)]
+
+static inline BOOL isIphoneX() {
+    BOOL result = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
+        return result;
+    }
+    if (@available(iOS 11.0, *)) {
+        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
+        if (mainWindow.safeAreaInsets.bottom > 0.0) {
+            result = YES;
+        }
+    }
+    return result;
+}
+// 是否为iPhone X
+#define kIs_iPhoneX (isIphoneX())
