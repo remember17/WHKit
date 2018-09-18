@@ -3,7 +3,7 @@
 
 ### 使用方法 
 ```objc
-pod 'WHKit', '~>1.3.5'
+pod 'WHKit', '~>1.3.6'
 如果没找到, 请先pod setup
 
 也可以直接在本网页下载，然后把WHKit文件加入到工程中使用
@@ -59,7 +59,7 @@ pod 'WHKit', '~>1.3.5'
 }];
 
 //是否为iPhone X的宏，返回BOOL值
-#define kIs_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+if (kIs_iPhoneX ) { ... }
 
 //快速创建单例
 WHSingletonH(ClassName)
