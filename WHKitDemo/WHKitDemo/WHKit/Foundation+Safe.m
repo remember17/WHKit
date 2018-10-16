@@ -17,7 +17,7 @@
 
 - (id)safeObjectAtIndexedSubscript:(NSUInteger)index {
     if (index >= self.count) {
-        NSAssert(FALSE, @"数组越界了，请解决。。。");
+        NSAssert(FALSE, @"数组越界了");
         return nil;
     } else {
         return [self objectAtIndex:index];
@@ -26,7 +26,7 @@
 
 - (id)safeObjectAtIndex:(NSUInteger)index {
     if (index >= self.count) {
-        NSAssert(FALSE, @"数组越界了，请解决。。。");
+        NSAssert(FALSE, @"数组越界了");
         return nil;
     } else {
         return [self objectAtIndex:index];
@@ -92,13 +92,13 @@
 }
 
 - (void)safeSetObject:(id)obj atIndexedSubscript:(NSUInteger)idx {
-    NSAssert(obj, @"setObject:atIndexedSubscript: 异常，obj为空，请修复，有问题联系liuwei7@yhd.com");
+    NSAssert(obj, @"setObject:atIndexedSubscript: 异常，obj为空");
     if (obj == nil) {
         return;
     }
     
     if (self.count < idx) {
-        NSAssert(obj, @"setObject:atIndexedSubscript: 异常，index越界，请修复，有问题联系liuwei7@yhd.com");
+        NSAssert(obj, @"setObject:atIndexedSubscript: 异常，index越界");
         return;
     }
     
@@ -158,7 +158,7 @@
 
 - (id)safeObjectAtIndexedSubscript:(NSUInteger)index {
     if (index >= self.count) {
-        NSAssert(FALSE, @"数组越界了，请解决。。。");
+        NSAssert(FALSE, @"数组越界了");
         return nil;
     } else {
         return [self objectAtIndex:index];
@@ -186,7 +186,7 @@
 }
 
 - (void)safeSetObject:(id)obj forKeyedSubscript:(id <NSCopying>)key {
-    NSAssert(key, @"setObject:forKeyedSubscript: 异常，请修复，有问题联系liuwei7@yhd.com");
+    NSAssert(key, @"setObject:forKeyedSubscript: 异常");
     if (!key) {
         return;
     }
