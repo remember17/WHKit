@@ -64,7 +64,6 @@ typedef void (^KVOBlock)(NSDictionary *change, void *context);
 //实例变量
 + (NSArray *)instanceVariable;
 
-
 - (BOOL)hasPropertyForKey:(NSString*)key;
 - (BOOL)hasIvarForKey:(NSString*)key;
 

@@ -10,7 +10,6 @@
 
 @interface UIColor (WHColor)
 
-
 /**
  * 使用16进制数字创建颜色
  */
@@ -34,7 +33,6 @@
  @return 颜色
  */
 + (UIColor *)wh_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
-
 
 /**
  *  @brief  渐变颜色

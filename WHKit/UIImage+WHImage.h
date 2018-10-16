@@ -46,10 +46,8 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 /** 获得灰度图 */
 - (UIImage *)wh_convertToGrayImage;
 
-
 + (UIImage *)animatedImageWithAnimatedGIFData:(NSData *)theData;
 + (UIImage *)animatedImageWithAnimatedGIFURL:(NSURL *)theURL;
-
 
 /** 合并两个图片为一个图片 */
 + (UIImage*)mergeImage:(UIImage*)firstImage withImage:(UIImage*)secondImage;

@@ -20,26 +20,26 @@
 /**
  * 根据TimeInterval获取时间字符串,带有时区偏移
  */
-+(NSString *)stringWithTimeInterval:(unsigned int)time Formatter:(NSString *)format;
++ (NSString *)stringWithTimeInterval:(unsigned int)time Formatter:(NSString *)format;
 /**
  * 根据字符串和格式获取TimeInterval时间,带有时区偏移
  */
-+(NSTimeInterval )timeIntervalFromString:(NSString *)timeStr Formatter:(NSString *)format;
++ (NSTimeInterval )timeIntervalFromString:(NSString *)timeStr Formatter:(NSString *)format;
 
 /**
  * 当前TimeInterval时间,带有时区偏移
  */
-+(NSTimeInterval )now;
++ (NSTimeInterval )now;
 
 /**
  * yyyy-MM-dd HH:mm:ss格式的当前时间
  */
-+(NSString *)stringNowWithFullFormatter;
++ (NSString *)stringNowWithFullFormatter;
 
 /**
  * 自定义格式的当前时间
  */
-+(NSString *)stringNowWithFormatter:(NSString *)format;
++ (NSString *)stringNowWithFormatter:(NSString *)format;
 
 
 /**

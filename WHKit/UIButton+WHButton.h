@@ -21,13 +21,11 @@ typedef void (^TouchedButtonBlock)(void);
 //点击按钮之后的动作
 - (void)wh_addActionHandler:(TouchedButtonBlock)touchHandler;
 
-
 /** 显示菊花 */
 - (void)wh_showIndicator;
 
 /** 隐藏菊花 */
 - (void)wh_hideIndicator;
-
 
 /** 改变按钮的响应区域,上左下右分别增加或减小多少  正数为增加 负数为减小*/
 @property (nonatomic, assign) UIEdgeInsets clickEdgeInsets;

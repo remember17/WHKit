@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (nullable NSArray<ObjectType> *)safeSubarrayWithRange:(NSRange)range;
 
-
 - (NSUInteger)safeIndexOfObject:(ObjectType)anObject;
 
 - (NSUInteger)safeIndexOfObject:(ObjectType)anObject defaultIndex:(NSUInteger)defaultIndex;

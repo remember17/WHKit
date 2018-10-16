@@ -21,7 +21,6 @@ typedef void (^LongPressActionBlock)(UILongPressGestureRecognizer *gestureRecogi
 @property (nonatomic, assign) CGFloat centerX;
 @property (nonatomic, assign) CGFloat centerY;
 
-
 //截取成图片
 - (UIImage *)wh_snapshotImage;
 

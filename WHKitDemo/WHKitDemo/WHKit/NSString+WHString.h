@@ -18,7 +18,6 @@
 ///  追加临时目录
 - (NSString *)appendTempPath;
 
-
 /**
  根据左边和右边的字符串,获得中间特定字符串
  @param strLeft 左边匹配字符串
@@ -58,7 +57,6 @@
 
 /** JSON字符串转成NSDictionary */
 -(NSDictionary *)dictionaryValue;
-
 
 /**
  *  手机号码的有效性:分电信、联通、移动和小灵通
@@ -127,8 +125,6 @@
  */
 - (BOOL)isValidTaxNo;
 
-
-
 /** 清除html标签 */
 - (NSString *)stringByStrippingHTML;
 
@@ -140,8 +136,6 @@
 
 /** 去除空格与空行 */
 - (NSString *)trimmingWhitespaceAndNewlines;
-
-
 
 /** 加密 */
 - (NSString *)toMD5;
