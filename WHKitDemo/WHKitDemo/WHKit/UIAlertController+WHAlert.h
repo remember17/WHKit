@@ -13,9 +13,7 @@ typedef NS_ENUM(NSInteger, OptionStyle) {
     OptionStyleStyleOnlyOK
 };
 
-
 @interface UIAlertController (WHAlert)
-
 
 /**
  中间弹窗

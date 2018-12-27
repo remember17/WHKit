@@ -10,11 +10,7 @@
 
 @interface NSArray (WHArray)
 
-/**
- 反转数组
- 
- @return 完成反转的数组
- */
+/** 反转数组 */
 - (NSArray *)wh_reverseArray;
 
 @end

@@ -10,27 +10,19 @@
 
 @interface UIScrollView (WHScrollView)
 
-
 - (void)scrollToTop;
-
 
 - (void)scrollToBottom;
 
-
 - (void)scrollToLeft;
-
 
 - (void)scrollToRight;
 
-
 - (void)scrollToTopAnimated:(BOOL)animated;
-
 
 - (void)scrollToBottomAnimated:(BOOL)animated;
 
-
 - (void)scrollToLeftAnimated:(BOOL)animated;
-
 
 - (void)scrollToRightAnimated:(BOOL)animated;
 

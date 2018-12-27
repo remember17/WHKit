@@ -11,17 +11,39 @@
 
 @interface NSString (WHString)
 
-///  追加文档目录
+/**
+ 在Document目录下拼接路径
+ 
+ 例：path = @"test".appendDocumentPath
+ 
+ @return 拼接好的路径
+ */
 - (NSString *)appendDocumentPath;
-///  追加缓存目录
+
+/**
+ 在Cache目录下拼接路径
+ 
+ 例：path = @"test".appendCachePath
+ 
+ @return 拼接好的路径
+ */
 - (NSString *)appendCachePath;
-///  追加临时目录
+
+/**
+ 在Temp目录下拼接路径
+ 
+ 例：path = @"test".appendTempPath
+ 
+ @return 拼接好的路径
+ */
 - (NSString *)appendTempPath;
 
 /**
- 根据左边和右边的字符串,获得中间特定字符串
+ 根据左边和右边的字符串，截取中间特定字符串
+
  @param strLeft 左边匹配字符串
  @param strRight 右边匹配的字符串
+ @return 目标字符串
  */
 - (NSString*)wh_substringWithinBoundsLeft:(NSString*)strLeft right:(NSString*)strRight;
 
@@ -58,71 +80,48 @@
 /** JSON字符串转成NSDictionary */
 -(NSDictionary *)dictionaryValue;
 
-/**
- *  手机号码的有效性:分电信、联通、移动和小灵通
- */
+/** 手机号码的有效性:分电信、联通、移动和小灵通 */
 - (BOOL)isMobileNumberClassification;
-/**
- *  手机号有效性
- */
+
+/** 手机号有效性 */
 - (BOOL)isMobileNumber;
 
-/**
- *  邮箱的有效性
- */
+/**邮箱的有效性 */
 - (BOOL)isEmailAddress;
 
-/**
- *  简单的身份证有效性
- *
- */
+/** 简单的身份证有效性 */
 - (BOOL)simpleVerifyIdentityCardNum;
 
 /**
- *  精确的身份证号码有效性检测
- *
- *  @param value 身份证号
+ 精确身份证有效验证
+
+ @param value 目标身份证
+ @return 是否有效
  */
 + (BOOL)accurateVerifyIDCardNumber:(NSString *)value;
 
-/**
- *  车牌号的有效性
- */
+/** 车牌号的有效性 */
 - (BOOL)isCarNumber;
 
-/**
- *  银行卡的有效性
- */
+/** 银行卡的有效性 */
 - (BOOL)bankCardluhmCheck;
 
-/**
- *  IP地址有效性
- */
+/** IP地址有效性 */
 - (BOOL)isIPAddress;
 
-/**
- *  Mac地址有效性
- */
+/** Mac地址有效性 */
 - (BOOL)isMacAddress;
 
-/**
- *  网址有效性
- */
+/** 网址有效性 */
 - (BOOL)isValidUrl;
 
-/**
- *  纯汉字
- */
+/** 是否纯汉字 */
 - (BOOL)isValidChinese;
 
-/**
- *  邮政编码
- */
+/** 邮政编码 */
 - (BOOL)isValidPostalcode;
 
-/**
- *  工商税号
- */
+/** 工商税号 */
 - (BOOL)isValidTaxNo;
 
 /** 清除html标签 */
@@ -137,19 +136,17 @@
 /** 去除空格与空行 */
 - (NSString *)trimmingWhitespaceAndNewlines;
 
-/** 加密 */
+/** 字符串转为Data */
+- (NSData *)toData;
+
+/** Data转为字符串 */
++ (NSString *)toStringWithData:(NSData *)data;
+
 - (NSString *)toMD5;
 - (NSString *)to16MD5;
 - (NSString *)sha1;
 - (NSString *)sha256;
 - (NSString *)sha512;
-
-#pragma mark - Data convert to string or string to data.
-/**
- *	string与Data转化
- */
-- (NSData *)toData;
-+ (NSString *)toStringWithData:(NSData *)data;
 
 @end
 

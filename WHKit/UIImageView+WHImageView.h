@@ -10,7 +10,7 @@
 
 @interface UIImageView (WHImageView)
 
-//快速创建imageView
+/** 快速创建imageView */
 +(instancetype)wh_imageViewWithPNGImage:(NSString *)imageName frame:(CGRect)frame;
 
 @end

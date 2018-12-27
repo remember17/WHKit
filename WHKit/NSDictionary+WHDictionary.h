@@ -10,10 +10,10 @@
 
 @interface NSDictionary (WHDictionary)
 
-//获得一般模型属性
+/** 一般模型属性 */
 -(void)wh_createProperty;
 
-//获得网络模型属性
+/** 网络模型属性 */
 -(void)wh_createNetProperty;
 
 /** 合并两个NSDictionary */
@@ -22,8 +22,10 @@
 /** 并入一个NSDictionary */
 - (NSDictionary *)dictionaryByMergingWith:(NSDictionary *)dict;
 
+/** 拼接字典 */
 - (NSDictionary *)dictionaryByAddingEntriesFromDictionary:(NSDictionary *)dictionary;
 
+/** 删除某些key值 */
 - (NSDictionary *)dictionaryByRemovingEntriesWithKeys:(NSSet *)keys;
 
 @end

@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface NSArray<__covariant ObjectType> (Safe)
 
 - (nullable ObjectType)safeObjectAtIndex:(NSUInteger)index;
@@ -81,5 +79,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)safeAppendString:(NSString *)aString;
 
 @end
-
-NS_ASSUME_NONNULL_END

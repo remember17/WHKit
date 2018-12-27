@@ -10,40 +10,36 @@
 
 @interface NSNumber (WHNumber)
 
-/** 返回自己对应的罗马数字 */
+/** 对应的罗马数字 */
 - (NSString *)romanNumeral;
 
-/* 展示 */
-- (NSString*)toDisplayNumberWithDigit:(NSInteger)digit;
+/** 转换为百分比字符串 */
 - (NSString*)toDisplayPercentageWithDigit:(NSInteger)digit;
 
-/*　四舍五入 */
 /**
- *  @brief  四舍五入
- *
- *  @param digit  限制最大位数
- *
- *  @return 结果
+ 四舍五入
+
+ @param digit 限制最大位数
+ @return 四舍五入后的结果
  */
 - (NSNumber*)doRoundWithDigit:(NSUInteger)digit;
 
 /**
- *  @brief  取上整
- *
- *  @param digit  限制最大位数
- *
- *  @return 结果
+ 上取整
+
+ @param digit 限制最大位数
+ @return 上取整后的结果
  */
 - (NSNumber*)doCeilWithDigit:(NSUInteger)digit;
 
 /**
- *  @brief  取下整
- *
- *  @param digit  限制最大位数
- *
- *  @return 结果
+ 下取整
+
+ @param digit 限制最大位数
+ @return 下取整后的结果
  */
 - (NSNumber*)doFloorWithDigit:(NSUInteger)digit;
 
+- (NSString*)toDisplayNumberWithDigit:(NSInteger)digit;
 
 @end

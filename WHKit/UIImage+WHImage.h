@@ -12,19 +12,22 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 
 @interface UIImage (WHImage)
 
-//截屏
+/** 截屏 */
 +(instancetype)wh_snapshotCurrentScreen;
 
-//图片模糊效果
+/** 图片模糊效果 */
 - (UIImage *)blur;
 
-//高效添加圆角图片
+/** 圆角图片 */
+- (UIImage *)imageWithCornerRadius:(CGFloat)radius;
+
+/** 圆角图片 */
 - (UIImage*)wh_imageAddCornerWithRadius:(CGFloat)radius andSize:(CGSize)size;
 
-//圆形图片
+/** 圆形图片 */
 + (UIImage *)wh_GetRoundImagewithImage:(UIImage *)image;
 
-//在图片上加居中的文字
+/** 在图片上加居中的文字 */
 - (UIImage *)wh_imageWithTitle:(NSString *)title fontSize:(CGFloat)fontSize titleColor:(UIColor *)titleColor;
 
 /**
@@ -45,9 +48,6 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 
 /** 获得灰度图 */
 - (UIImage *)wh_convertToGrayImage;
-
-+ (UIImage *)animatedImageWithAnimatedGIFData:(NSData *)theData;
-+ (UIImage *)animatedImageWithAnimatedGIFURL:(NSURL *)theURL;
 
 /** 合并两个图片为一个图片 */
 + (UIImage*)mergeImage:(UIImage*)firstImage withImage:(UIImage*)secondImage;
@@ -73,7 +73,6 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 /** 将图片旋转radians弧度 */
 - (UIImage *)imageRotatedByRadians:(CGFloat)radians;
 
-
 /** 截取当前image对象rect区域内的图像 */
 - (UIImage *)subImageWithRect:(CGRect)rect;
 
@@ -89,23 +88,40 @@ typedef void (^UIImageSizeRequestCompleted) (NSURL* imgURL, CGSize size);
 /** UIView转化为UIImage */
 + (UIImage *)imageFromView:(UIView *)view;
 
+/** 返回截取得到图片的某一块rect */
 - (UIImage *)imageCroppedToRect:(CGRect)rect;
+
+/** 倒影 */
+- (UIImage *)reflectedImageWithScale:(CGFloat)scale;
+
+/** 倒影 */
+- (UIImage *)imageWithReflectionWithScale:(CGFloat)scale gap:(CGFloat)gap alpha:(CGFloat)alpha;
+
+/**
+ 带有阴影的图片
+
+ @param color 颜色
+ @param offset offset
+ @param blur 模糊度，可以先设置个20试试
+ @return 带有阴影的图片
+ */
+- (UIImage *)imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur;
+
+/**
+ 透明图片
+
+ @param alpha 透明度
+ @return 透明图片
+ */
+- (UIImage *)imageWithAlpha:(CGFloat)alpha;
+
++ (UIImage *)animatedImageWithAnimatedGIFData:(NSData *)theData;
++ (UIImage *)animatedImageWithAnimatedGIFURL:(NSURL *)theURL;
 - (UIImage *)imageScaledToSize:(CGSize)size;
 - (UIImage *)imageScaledToFitSize:(CGSize)size;
 - (UIImage *)imageScaledToFillSize:(CGSize)size;
-- (UIImage *)imageCroppedAndScaledToSize:(CGSize)size
-                             contentMode:(UIViewContentMode)contentMode
-                                padToFit:(BOOL)padToFit;
-
-- (UIImage *)reflectedImageWithScale:(CGFloat)scale;
-- (UIImage *)imageWithReflectionWithScale:(CGFloat)scale gap:(CGFloat)gap alpha:(CGFloat)alpha;
-
-//带有阴影效果的图片
-- (UIImage *)imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur;
-- (UIImage *)imageWithCornerRadius:(CGFloat)radius;
-- (UIImage *)imageWithAlpha:(CGFloat)alpha;
+- (UIImage *)imageCroppedAndScaledToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode padToFit:(BOOL)padToFit;
 - (UIImage *)imageWithMask:(UIImage *)maskImage;
-
 - (UIImage *)maskImageFromImageAlpha;
 
 @end

@@ -10,19 +10,13 @@
 
 @interface UIColor (WHColor)
 
-/**
- * 使用16进制数字创建颜色
- */
+/** 16进制数字创建颜色 */
 + (instancetype)wh_colorWithHex:(uint32_t)hex;
 
-/**
- * 随机颜色
- */
+/** 随机色 */
 + (instancetype)wh_randomColor;
 
-/**
- * RGB颜色
- */
+/** RGB颜色 */
 + (instancetype)wh_colorWithRed:(uint8_t)red green:(uint8_t)green blue:(uint8_t)blue;
 
 /**

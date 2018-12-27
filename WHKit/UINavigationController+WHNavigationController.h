@@ -25,10 +25,10 @@
 /** pop回第n层 */
 - (NSArray *)popToViewControllerWithLevel:(NSInteger)level animated:(BOOL)animated;
 
-///以某种动画形式push
+/** 以某种动画形式push */
 - (void)pushViewController:(UIViewController *)controller withTransition:(UIViewAnimationTransition)transition;
 
-///以某种动画形式pop
+/** 以某种动画形式pop */
 - (UIViewController *)popViewControllerWithTransition:(UIViewAnimationTransition)transition;
 
 @end

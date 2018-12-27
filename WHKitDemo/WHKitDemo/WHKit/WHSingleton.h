@@ -7,9 +7,7 @@
 //  Copyright © 2017年 remember17. All rights reserved.
 //  http://www.jianshu.com/p/c935314b078e
 
-
 #define WHSingletonH(ClassName) +(instancetype) share##ClassName;
-
 
 #define WHSingletonM(ClassName) static id _instance;\
 \

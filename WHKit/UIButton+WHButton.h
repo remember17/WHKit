@@ -12,13 +12,19 @@ typedef void (^TouchedButtonBlock)(void);
 
 @interface UIButton (WHButton)
 
-//快速创建按钮
+/** 快速创建按钮 */
 +(instancetype)wh_buttonWithTitle:(NSString *)title backColor:(UIColor *)backColor backImageName:(NSString *)backImageName titleColor:(UIColor *)color fontSize:(int)fontSize frame:(CGRect)frame cornerRadius:(CGFloat)cornerRadius;
 
-//多久之后开始执行
+/**
+ 多久之后开始执行
+
+ @param timeout 多少秒
+ @param waitBlock 倒计时
+ @param finishBlock 倒计时结束时回调
+ */
 - (void)startTime:(NSInteger)timeout waitBlock:(void(^)(NSInteger remainTime))waitBlock finishBlock:(void(^)(void))finishBlock;
 
-//点击按钮之后的动作
+/** 触发按钮点击事件 */
 - (void)wh_addActionHandler:(TouchedButtonBlock)touchHandler;
 
 /** 显示菊花 */
@@ -27,40 +33,40 @@ typedef void (^TouchedButtonBlock)(void);
 /** 隐藏菊花 */
 - (void)wh_hideIndicator;
 
-/** 改变按钮的响应区域,上左下右分别增加或减小多少  正数为增加 负数为减小*/
+/** 改变按钮的响应区域,上左下右分别增加或减小多少 正数为增加 负数为减小 */
 @property (nonatomic, assign) UIEdgeInsets clickEdgeInsets;
 
-//badge
+/** 角标 */
 @property (strong, nonatomic) UILabel *badge;
 
-/** badge的文字 */
+/** 角标的值 */
 @property (nonatomic) NSString *badgeValue;
 
-/** 背景颜色 */
+/** 角标背景颜色 */
 @property (nonatomic) UIColor *badgeBGColor;
 
-/** 文字颜色 */
+/** 角标文字颜色 */
 @property (nonatomic) UIColor *badgeTextColor;
 
-/** 文字的字体 */
+/** 角标文字的字体 */
 @property (nonatomic) UIFont *badgeFont;
 
-/** badge的padding */
+/** 角标边距 */
 @property (nonatomic) CGFloat badgePadding;
 
-/** 最小的size */
+/** 角标最小的大小 */
 @property (nonatomic) CGFloat badgeMinSize;
 
-/** x坐标 */
+/** 角标x坐标 */
 @property (nonatomic) CGFloat badgeOriginX;
 
-/** y坐标 */
+/** 角标y坐标 */
 @property (nonatomic) CGFloat badgeOriginY;
 
-/** 如果是数字0的话就隐藏不显示 */
+/** 如果是数字0的话就隐藏角标不显示 */
 @property BOOL shouldHideBadgeAtZero;
 
-/** 是否要缩放动画 */
+/** 显示角标是否要缩放动画 */
 @property BOOL shouldAnimateBadge;
 
 @end

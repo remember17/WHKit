@@ -9,81 +9,45 @@
 #import "ViewController.h"
 #import "WHKit.h"
 
+/***********************************************************/
+/******************* 更多Category查看WHKit *******************/
+/***********************************************************/
+
 @interface ViewController () <UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, weak) UIButton *downButton;
+@property (nonatomic, weak) UIButton *button;
 
-@property (nonatomic, weak) UIButton *topButton;
+@property (nonatomic, assign) BOOL isBottom;
 
 @property (nonatomic, strong) UITableView *tableview;
 
 @end
 
-static NSString *cellID=@"CellID";
-
-@implementation ViewController {
-    UITableView *tableV;
-}
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"TEST";
     
-    /*******************更多Category请查看WHKit文件*******************/
-    
-    [self setupTableView];
-    
-    [self setupDownButton];
+    [self.view addSubview:self.tableview];
+    [self.view addSubview:self.button];
     
     // 本月的第一天距离现在多久
     NSLog(@"%@",[[NSDate begindayOfMonth:[NSDate new]] timeInfo]);
-}
 
-#pragma mark - Example
-- (void)setupDownButton {
-    
-    //快速创建button
-    UIButton *downButton = [UIButton wh_buttonWithTitle:@"Down" backColor:kBlackColor backImageName:nil titleColor:kWhiteColor fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
-    
-    [self.view addSubview:downButton];
-    self.downButton = downButton;
-    
-    //按钮点击
-    @weakify(self); // 处理循环引用
-    [downButton wh_addActionHandler:^{
-        @strongify(self);
-        [self.topButton removeFromSuperview];
-        [self setupTopButton];
-        //滑到底部
-        [self.tableview scrollToBottom];
+    // 定时器
+    __block NSInteger test = 1;
+    NSTimer *timer = [NSTimer wh_scheduledTimerWithTimeInterval:1 repeats:YES callback:^(NSTimer *timer) {
+        NSLog(@"%ld",(test += 1));
     }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [timer pauseTimer]; // 暂停
+        [timer resumeTimerAfterTimeInterval:5]; // 5秒后重新开启
+    });
 }
 
-- (void)setupTopButton {
-    
-    UIButton *topButton = [UIButton wh_buttonWithTitle:@"Top" backColor:kBlackColor backImageName:nil titleColor:kWhiteColor fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
-    
-    [self.view addSubview:topButton];
-    self.topButton = topButton;
-    
-    @weakify(self); // 处理循环引用
-    [topButton wh_addActionHandler:^{
-        @strongify(self);
-        [self.downButton removeFromSuperview];
-        [self setupDownButton];
-        [self.tableview scrollToTop];
-    }];
-}
-
-#pragma mark - TableView
-- (void)setupTableView{
-    _tableview=[[UITableView alloc] initWithFrame:CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
-    [self.view addSubview:_tableview];
-    _tableview.dataSource = self;
-    _tableview.delegate = self;
-    [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
-    UIView *emptyView = [UIView new];
-    _tableview.tableFooterView = emptyView;
-}
+#pragma mark - delegate & datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -94,10 +58,41 @@ static NSString *cellID=@"CellID";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID" forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+#pragma mark - property
+
+- (UITableView *)tableview {
+    if (!_tableview) {
+        _tableview=[[UITableView alloc] initWithFrame:CGRectMake(0, kTopHeight, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+        _tableview.dataSource = self;
+        _tableview.delegate = self;
+        [_tableview registerClass:[UITableViewCell class] forCellReuseIdentifier:@"CellID"];
+    }
+    return _tableview;
+}
+
+- (UIButton *)button {
+    if (!_button) {
+        //快速创建button
+        _button = [UIButton wh_buttonWithTitle:@"Down" backColor:kBlackColor backImageName:@"" titleColor:kWhiteColor fontSize:14 frame:CGRectMake(self.view.width-65, self.view.height-65, 50, 50) cornerRadius:25];
+        @weakify(self); // 处理循环引用
+        [_button wh_addActionHandler:^{ //按钮点击
+            @strongify(self);
+            [self.button setTitle:(self.isBottom ? @"Down" : @"Top") forState:UIControlStateNormal];
+            if (self.isBottom) {
+                [self.tableview scrollToTop];
+            } else {
+                [self.tableview scrollToBottom];
+            }
+            self.isBottom = !self.isBottom;
+        }];
+    }
+    return _button;
 }
 
 @end

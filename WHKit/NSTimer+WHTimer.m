@@ -9,25 +9,25 @@
 #import "NSTimer+WHTimer.h"
 #import <objc/runtime.h>
 
-static const void *s_hyb_private_currentCountTime = "s_hyb_private_currentCountTime";
+static const void *timer_private_currentCountTime = "timer_private_currentCountTime";
 
 @implementation NSTimer (WHTimer)
 
-- (NSNumber *)hyb_private_currentCountTime {
-    NSNumber *obj = objc_getAssociatedObject(self, s_hyb_private_currentCountTime);
+- (NSNumber *)timer_private_currentCountTime {
+    NSNumber *obj = objc_getAssociatedObject(self, timer_private_currentCountTime);
     
     if (obj == nil) {
         obj = @(0);
         
-        [self setHyb_private_currentCountTime:obj];
+        [self settimer_private_currentCountTime:obj];
     }
     
     return obj;
 }
 
-- (void)setHyb_private_currentCountTime:(NSNumber *)time {
+- (void)settimer_private_currentCountTime:(NSNumber *)time {
     objc_setAssociatedObject(self,
-                             s_hyb_private_currentCountTime,
+                             timer_private_currentCountTime,
                              time, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
@@ -44,7 +44,7 @@ static const void *s_hyb_private_currentCountTime = "s_hyb_private_currentCountT
                                @"count"        : @(count)};
     return [NSTimer scheduledTimerWithTimeInterval:interval
                                             target:self
-                                          selector:@selector(hyb_onTimerUpdateCountBlock:)
+                                          selector:@selector(timer_onTimerUpdateCountBlock:)
                                           userInfo:userInfo
                                            repeats:YES];
 }
@@ -54,27 +54,27 @@ static const void *s_hyb_private_currentCountTime = "s_hyb_private_currentCountT
                                       callback:(TimerCallback)callback {
     return [NSTimer scheduledTimerWithTimeInterval:interval
                                             target:self
-                                          selector:@selector(hyb_onTimerUpdateBlock:)
+                                          selector:@selector(timer_onTimerUpdateBlock:)
                                           userInfo:callback
                                            repeats:repeats];
 }
 
-- (void)hyb_fireTimer {
+- (void)timer_fireTimer {
     [self setFireDate:[NSDate distantPast]];
 }
 
-- (void)hyb_unfireTimer {
+- (void)timer_unfireTimer {
     [self setFireDate:[NSDate distantFuture]];
 }
 
-- (void)hyb_invalidate {
+- (void)timer_invalidate {
     if (self.isValid) {
         [self invalidate];
     }
 }
 
 #pragma mark - Private
-+ (void)hyb_onTimerUpdateBlock:(NSTimer *)timer {
++ (void)timer_onTimerUpdateBlock:(NSTimer *)timer {
     TimerCallback block = timer.userInfo;
     
     if (block) {
@@ -82,8 +82,8 @@ static const void *s_hyb_private_currentCountTime = "s_hyb_private_currentCountT
     }
 }
 
-+ (void)hyb_onTimerUpdateCountBlock:(NSTimer *)timer {
-    NSInteger currentCount = [[timer hyb_private_currentCountTime] integerValue];
++ (void)timer_onTimerUpdateCountBlock:(NSTimer *)timer {
+    NSInteger currentCount = [[timer timer_private_currentCountTime] integerValue];
     
     NSDictionary *userInfo = timer.userInfo;
     TimerCallback callback = userInfo[@"callback"];
@@ -91,17 +91,17 @@ static const void *s_hyb_private_currentCountTime = "s_hyb_private_currentCountT
     
     if (currentCount < count.integerValue) {
         currentCount++;
-        [timer setHyb_private_currentCountTime:@(currentCount)];
+        [timer settimer_private_currentCountTime:@(currentCount)];
         
         if (callback) {
             callback(timer);
         }
     } else {
         currentCount = 0;
-        [timer setHyb_private_currentCountTime:@(currentCount)];
+        [timer settimer_private_currentCountTime:@(currentCount)];
         
-        [timer hyb_unfireTimer];
-        [timer hyb_invalidate];
+        [timer timer_unfireTimer];
+        [timer timer_invalidate];
     }
 }
 
