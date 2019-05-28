@@ -1,5 +1,4 @@
 # WHKit
-分类,开发小工具
 
 ### 使用方法 
 ```objc
@@ -54,6 +53,11 @@ pod 'WHKit', '~>1.7'
   NSLog(@"我被点击了");
 }];
 
+/** UIView分类， 触发view点击事件 */
+[view wh_addTapActionWithBlock:^(UITapGestureRecognizer *gestureRecoginzer) {
+  NSLog(@"点击了view");
+}];
+
 /** 是否为iPhone X的宏，返回BOOL值 */
 if (kIs_iPhoneX ) { ... }
 
@@ -90,9 +94,6 @@ NSString *macAddress = [UIDevice macAddress];
 
 /** 是否是今天 */
 - (BOOL)isToday;
-
-/** UIView分类， 触发view点击事件 */
-- (void)wh_addTapActionWithBlock:(TapActionBlock)block;
 ```
 
 ### MIT LICENSE
