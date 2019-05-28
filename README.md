@@ -4,12 +4,9 @@
 ### 使用方法 
 ```objc
 pod 'WHKit', '~>1.7'
-如果没找到, 请先pod setup
 
-也可以直接在本网页下载，然后把WHKit文件加入到工程中使用
-
-在使用的地方：#import "WHKit.h"
-推荐直接在pch文件中：#import "WHKit.h"
+也可以直接在本网页下载，然后把WHKit加入到工程中
+在pch文件中：#import "WHKit.h"
 ```
 
 ### 这个文件中包含了如下内容
@@ -45,7 +42,6 @@ pod 'WHKit', '~>1.7'
 /******************************/
 
 
-
 /************* 宏 *************/
 #import "WHMacro.h"
 /******************************/
@@ -53,41 +49,50 @@ pod 'WHKit', '~>1.7'
 
 ### 例子 Example
 ```objc
-//点击按钮
+/** 点击按钮 */
 [button wh_addActionHandler:^{
   NSLog(@"我被点击了");
 }];
 
-//是否为iPhone X的宏，返回BOOL值
+/** 是否为iPhone X的宏，返回BOOL值 */
 if (kIs_iPhoneX ) { ... }
 
-//快速创建单例
+/** 快速创建单例 */
 WHSingletonH(ClassName)
 WHSingletonM(ClassName)
 
-//快速创建一个Button, 其中KBLACK_COLOR是颜色的宏
-UIButton *button = [UIButton wh_buttonWithTitle:@"Test" backColor:KBLACK_COLOR backImageName:nil titleColor:KWHITE_COLOR fontSize:14 frame:CGRectMake(100, 100, 50, 50) cornerRadius:7];
-
-//改变手机状态栏的颜色
+/** 改变状态栏的颜色 */
 [WHMethods wh_setStatusBarBackgroundColor:[UIColor lightGrayColor]];
 
-//高效添加圆角图片
+/** 高效添加圆角 */
 - (UIImage*)wh_imageAddCornerWithRadius:(CGFloat)radius andSize:(CGSize)size;
 
-/** mac地址*/
+/** mac地址 */
 NSString *macAddress = [UIDevice macAddress];
 
-/**反转数组*/
+/** 反转数组 */
 - (NSArray *)wh_reverseArray;
 
-//获得一般模型属性
--(void)wh_createProperty;
-
-/**根据左边和右边的字符串,获得中间特定字符串*/
+/** 根据左边和右边的字符串,获得中间特定字符串 */
 - (NSString*)wh_substringWithinBoundsLeft:(NSString*)strLeft right:(NSString*)strRight;
 
-/**@brief  渐变颜色*/
+/** 渐变颜色*/
 + (UIColor*)wh_gradientFromColor:(UIColor*)fromColor toColor:(UIColor*)toColor withHeight:(CGFloat)height;
+
+/** 十六进制字符串颜色 */
++ (UIColor *)wh_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
+
+/** 根据Date返回日期字符串 */
++ (NSString *)stringWithDate:(NSDate *)date format:(NSString *)format;
+
+/** 是否润年 */
+- (BOOL)isLeapYear;
+
+/** 是否是今天 */
+- (BOOL)isToday;
+
+/** UIView分类， 触发view点击事件 */
+- (void)wh_addTapActionWithBlock:(TapActionBlock)block;
 ```
 
 ### MIT LICENSE
