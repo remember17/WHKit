@@ -2,15 +2,18 @@
 //  main.m
 //  WHKitDemo
 //
-//  Created by 吴浩 on 2017/6/15.
-//  Copyright © 2017年 remember17. All rights reserved.
+//  Created by wu, hao on 2020/8/21.
+//  Copyright © 2020 wuhao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
+    NSString * appDelegateClassName;
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        // Setup code that might create autoreleased objects goes here.
+        appDelegateClassName = NSStringFromClass([AppDelegate class]);
     }
+    return UIApplicationMain(argc, argv, nil, appDelegateClassName);
 }

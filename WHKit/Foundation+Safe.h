@@ -14,23 +14,23 @@
 
 - (nullable ObjectType)safeObjectAtIndex:(NSUInteger)index defaultValue:(nullable ObjectType)defaultValue;
 
-+ (instancetype)safeArrayWithObject:(ObjectType)object;
++ (instancetype _Nullable )safeArrayWithObject:(ObjectType _Nonnull)object;
 
 - (nullable NSArray<ObjectType> *)safeSubarrayWithRange:(NSRange)range;
 
-- (NSUInteger)safeIndexOfObject:(ObjectType)anObject;
+- (NSUInteger)safeIndexOfObject:(ObjectType _Nonnull)anObject;
 
-- (NSUInteger)safeIndexOfObject:(ObjectType)anObject defaultIndex:(NSUInteger)defaultIndex;
+- (NSUInteger)safeIndexOfObject:(ObjectType _Nonnull)anObject defaultIndex:(NSUInteger)defaultIndex;
 
 @end
 
 @interface NSMutableArray<ObjectType> (Safe)
 
-- (void)safeAddObject:(ObjectType)object;
+- (void)safeAddObject:(ObjectType _Nonnull)object;
 
-- (void)safeInsertObject:(ObjectType)object atIndex:(NSUInteger)index;
+- (void)safeInsertObject:(ObjectType _Nonnull)object atIndex:(NSUInteger)index;
 
-- (void)safeInsertObjects:(NSArray<ObjectType> *)objects atIndexes:(NSIndexSet *)indexs;
+- (void)safeInsertObjects:(NSArray<ObjectType> * _Nonnull)objects atIndexes:(NSIndexSet * _Nonnull)indexs;
 
 - (void)safeRemoveObjectAtIndex:(NSUInteger)index;
 
@@ -42,13 +42,13 @@
 
 @interface NSDictionary<__covariant KeyType, __covariant ObjectType> (Safe)
 
-+ (instancetype)safeDictionaryWithObject:(ObjectType)object forKey:(KeyType)key;
++ (instancetype _Nullable )safeDictionaryWithObject:(ObjectType _Nonnull)object forKey:(KeyType _Nonnull)key;
 
 @end
 
 @interface NSMutableDictionary<KeyType, ObjectType> (safe)
 
-- (void)safeSetObject:(ObjectType)aObj forKey:(KeyType)aKey;
+- (void)safeSetObject:(ObjectType _Nonnull)aObj forKey:(KeyType _Nonnull)aKey;
 
 @end
 
@@ -64,18 +64,18 @@
 
 - (NSRange)safeRangeOfString:(nullable NSString *)aString options:(NSStringCompareOptions)mask;
 
-- (NSString *)safeStringByAppendingString:(NSString *)aString;
+- (NSString *_Nullable)safeStringByAppendingString:(NSString * _Nonnull)aString;
 
-- (instancetype)safeInitWithString:(NSString *)aString;
+- (instancetype _Nullable )safeInitWithString:(NSString * _Nonnull)aString;
 
-+ (instancetype)safeStringWithString:(NSString *)string;
++ (instancetype _Nullable )safeStringWithString:(NSString * _Nonnull)string;
 
 @end
 
 @interface NSMutableString (Safe)
 
-- (void)safeInsertString:(NSString *)aString atIndex:(NSUInteger)loc;
+- (void)safeInsertString:(NSString * _Nonnull)aString atIndex:(NSUInteger)loc;
 
-- (void)safeAppendString:(NSString *)aString;
+- (void)safeAppendString:(NSString * _Nonnull)aString;
 
 @end

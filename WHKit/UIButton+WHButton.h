@@ -4,7 +4,7 @@
 //  https://github.com/remember17/WHKit
 //  Created by 吴浩 on 2017/6/7.
 //  Copyright © 2017年 remember17. All rights reserved.
-//  http://www.jianshu.com/p/c935314b078e
+//  
 
 #import <UIKit/UIKit.h>
 
@@ -13,7 +13,13 @@ typedef void (^TouchedButtonBlock)(void);
 @interface UIButton (WHButton)
 
 /** 快速创建按钮 */
-+(instancetype)wh_buttonWithTitle:(NSString *)title backColor:(UIColor *)backColor backImageName:(NSString *)backImageName titleColor:(UIColor *)color fontSize:(int)fontSize frame:(CGRect)frame cornerRadius:(CGFloat)cornerRadius;
++(instancetype)wh_buttonWithTitle:(NSString *)title
+                        backColor:(UIColor *)backColor
+                    backImageName:(NSString *)backImageName
+                       titleColor:(UIColor *)color
+                         fontSize:(int)fontSize
+                            frame:(CGRect)frame
+                     cornerRadius:(CGFloat)cornerRadius;
 
 /**
  多久之后开始执行

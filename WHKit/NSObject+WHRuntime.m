@@ -228,7 +228,7 @@
     return array;
 }
 
-+ (NSString *)decodeType:(const char *)cString
++ (NSString *)wh_decodeType:(const char *)cString
 {
     if (!strcmp(cString, @encode(char)))
         return @"char";
@@ -279,7 +279,7 @@
     {
         if ([[result substringToIndex:1] isEqualToString:@"^"]) {
             result = [NSString stringWithFormat:@"%@ *",
-                      [NSString decodeType:[[result substringFromIndex:1] cStringUsingEncoding:NSUTF8StringEncoding]]];
+                      [NSString wh_decodeType:[[result substringFromIndex:1] cStringUsingEncoding:NSUTF8StringEncoding]]];
         }
     }
     return result;
@@ -295,7 +295,7 @@
     Ivar *ivars = class_copyIvarList([self class], &outCount);
     NSMutableArray *result = [NSMutableArray array];
     for (int i = 0; i < outCount; i++) {
-        NSString *type = [[self class] decodeType:ivar_getTypeEncoding(ivars[i])];
+        NSString *type = [[self class] wh_decodeType:ivar_getTypeEncoding(ivars[i])];
         NSString *name = [NSString stringWithCString:ivar_getName(ivars[i]) encoding:NSUTF8StringEncoding];
         NSString *ivarDescription = [NSString stringWithFormat:@"%@ %@", type, name];
         [result addObject:ivarDescription];

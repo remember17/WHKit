@@ -257,8 +257,10 @@
     Ivar ivar = class_getInstanceVariable([self class], [key UTF8String]);
     return (BOOL)ivar;
 }
+
 #pragma mark -- help
-+ (NSDictionary *)dictionaryWithProperty:(objc_property_t)property
+
++ (NSDictionary *)wh_dictionaryWithProperty:(objc_property_t)property
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     
@@ -442,6 +444,7 @@
     
     return result;
 }
+
 + (NSString *)decodeType:(const char *)cString
 {
     if (!strcmp(cString, @encode(char)))

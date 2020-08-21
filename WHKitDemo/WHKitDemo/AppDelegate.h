@@ -1,16 +1,14 @@
 //
 //  AppDelegate.h
 //  WHKitDemo
-//  https://github.com/remember17/WHKit
-//  Created by 吴浩 on 2017/6/15.
-//  Copyright © 2017年 remember17. All rights reserved.
+//
+//  Created by wu, hao on 2020/8/21.
+//  Copyright © 2020 wuhao. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
 
 
 @end
