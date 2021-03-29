@@ -1,0 +1,6 @@
+framework module Pods_WHKitDemo {
+  umbrella header "Pods-WHKitDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

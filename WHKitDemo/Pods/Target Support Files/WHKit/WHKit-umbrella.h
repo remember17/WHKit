@@ -1,12 +1,17 @@
-//
-//  WHKit.h
-//  WHKit
-//  https://github.com/remember17/WHKit
-//  Created by 吴浩 on 2017/6/15.
-//  Copyright © 2017年 remember17. All rights reserved.
-//  
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
 
-/************* 分类 *************/
+#import <WHKit/CALayer+WHLayer.h>
+#import <WHKit/Foundation+Safe.h>
 #import <WHKit/NSArray+WHArray.h>
 #import <WHKit/NSDate+WHDate.h>
 #import <WHKit/NSDictionary+WHDictionary.h>
@@ -16,6 +21,8 @@
 #import <WHKit/NSObject+WHRuntime.h>
 #import <WHKit/NSString+WHString.h>
 #import <WHKit/NSTimer+WHTimer.h>
+#import <WHKit/SerializeKit.h>
+#import <WHKit/UIAlertController+WHAlert.h>
 #import <WHKit/UIBarButtonItem+WHBarButtonItem.h>
 #import <WHKit/UIButton+WHButton.h>
 #import <WHKit/UIColor+WHColor.h>
@@ -28,16 +35,11 @@
 #import <WHKit/UITableView+WHTableView.h>
 #import <WHKit/UIView+WHView.h>
 #import <WHKit/UIViewController+WHVC.h>
-#import <WHKit/WHMethods.h>
-#import <WHKit/SerializeKit.h>
-#import <WHKit/WHSingleton.h>
-#import <WHKit/CALayer+WHLayer.h>
-#import <WHKit/UIAlertController+WHAlert.h>
-#import <WHKit/Foundation+Safe.h>
-/******************************/
-
-
-
-/************* 宏 *************/
+#import <WHKit/WHKit.h>
 #import <WHKit/WHMacro.h>
-/******************************/
+#import <WHKit/WHMethods.h>
+#import <WHKit/WHSingleton.h>
+
+FOUNDATION_EXPORT double WHKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char WHKitVersionString[];
+
