@@ -2,7 +2,7 @@
 
 ### 使用方法 
 ```objc
-pod 'WHKit', '~>1.8.1'
+pod 'WHKit', '~>1.9.0'
 
 也可以直接把WHKit文件添加进工程中
 在pch文件中：#import "WHKit.h"
