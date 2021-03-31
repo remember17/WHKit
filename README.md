@@ -10,40 +10,35 @@ pod 'WHKit', '~>1.8.0'
 
 ### 这个文件中包含了如下内容
 ```objc
-/************* 分类 *************/
-#import "NSArray+WHArray.h"
-#import "NSDate+WHDate.h"
-#import "NSDictionary+WHDictionary.h"
-#import "NSFileManager+WHFileManager.h"
-#import "NSNumber+WHNumber.h"
-#import "NSObject+WHObject.h"
-#import "NSObject+WHRuntime.h"
-#import "NSString+WHString.h"
-#import "NSTimer+WHTimer.h"
-#import "UIBarButtonItem+WHBarButtonItem.h"
-#import "UIButton+WHButton.h"
-#import "UIColor+WHColor.h"
-#import "UIDevice+WHDevice.h"
-#import "UIImage+WHImage.h"
-#import "UIImageView+WHImageView.h"
-#import "UILabel+WHLabel.h"
-#import "UINavigationController+WHNavigationController.h"
-#import "UIScrollView+WHScrollView.h"
-#import "UITableView+WHTableView.h"
-#import "UIView+WHView.h"
-#import "UIViewController+WHVC.h"
-#import "WHMethods.h"
-#import "SerializeKit.h"
-#import "WHSingleton.h"
-#import "CALayer+WHLayer.h"
-#import "UIAlertController+WHAlert.h"
-#import "Foundation+Safe.h"
-/******************************/
+#import <WHKit/NSArray+WHArray.h>
+#import <WHKit/NSDate+WHDate.h>
+#import <WHKit/NSDictionary+WHDictionary.h>
+#import <WHKit/NSFileManager+WHFileManager.h>
+#import <WHKit/NSNumber+WHNumber.h>
+#import <WHKit/NSObject+WHObject.h>
+#import <WHKit/NSObject+WHRuntime.h>
+#import <WHKit/NSString+WHString.h>
+#import <WHKit/NSTimer+WHTimer.h>
+#import <WHKit/UIBarButtonItem+WHBarButtonItem.h>
+#import <WHKit/UIButton+WHButton.h>
+#import <WHKit/UIColor+WHColor.h>
+#import <WHKit/UIDevice+WHDevice.h>
+#import <WHKit/UIImage+WHImage.h>
+#import <WHKit/UILabel+WHLabel.h>
+#import <WHKit/UINavigationController+WHNavigationController.h>
+#import <WHKit/UIScrollView+WHScrollView.h>
+#import <WHKit/UITableView+WHTableView.h>
+#import <WHKit/UIView+WHView.h>
+#import <WHKit/UIViewController+WHVC.h>
+#import <WHKit/CALayer+WHLayer.h>
+#import <WHKit/UIAlertController+WHAlert.h>
+#import <WHKit/Foundation+Safe.h>
 
+#import <WHKit/WHMethods.h>
 
-/************* 宏 *************/
-#import "WHMacro.h"
-/******************************/
+#import <WHKit/WHMacro.h>
+#import <WHKit/SerializeKit.h>
+#import <WHKit/WHSingleton.h>
 ```
 
 ### 例子 Example
@@ -65,14 +60,8 @@ if (kIs_iPhoneX ) { ... }
 WHSingletonH(ClassName)
 WHSingletonM(ClassName)
 
-/** 改变状态栏的颜色 */
-[WHMethods wh_setStatusBarBackgroundColor:[UIColor lightGrayColor]];
-
 /** 高效添加圆角 */
 - (UIImage*)wh_imageAddCornerWithRadius:(CGFloat)radius andSize:(CGSize)size;
-
-/** mac地址 */
-NSString *macAddress = [UIDevice macAddress];
 
 /** 反转数组 */
 - (NSArray *)wh_reverseArray;

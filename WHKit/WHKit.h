@@ -6,7 +6,6 @@
 //  Copyright © 2017年 remember17. All rights reserved.
 //  
 
-/************* 分类 *************/
 #import <WHKit/NSArray+WHArray.h>
 #import <WHKit/NSDate+WHDate.h>
 #import <WHKit/NSDictionary+WHDictionary.h>
@@ -21,23 +20,18 @@
 #import <WHKit/UIColor+WHColor.h>
 #import <WHKit/UIDevice+WHDevice.h>
 #import <WHKit/UIImage+WHImage.h>
-#import <WHKit/UIImageView+WHImageView.h>
 #import <WHKit/UILabel+WHLabel.h>
 #import <WHKit/UINavigationController+WHNavigationController.h>
 #import <WHKit/UIScrollView+WHScrollView.h>
 #import <WHKit/UITableView+WHTableView.h>
 #import <WHKit/UIView+WHView.h>
 #import <WHKit/UIViewController+WHVC.h>
-#import <WHKit/WHMethods.h>
-#import <WHKit/SerializeKit.h>
-#import <WHKit/WHSingleton.h>
 #import <WHKit/CALayer+WHLayer.h>
 #import <WHKit/UIAlertController+WHAlert.h>
 #import <WHKit/Foundation+Safe.h>
-/******************************/
 
+#import <WHKit/WHMethods.h>
 
-
-/************* 宏 *************/
 #import <WHKit/WHMacro.h>
-/******************************/
+#import <WHKit/SerializeKit.h>
+#import <WHKit/WHSingleton.h>

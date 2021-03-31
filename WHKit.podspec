@@ -6,7 +6,7 @@
       s.homepage     = "https://github.com/remember17/WHKit"  
       s.license      = "MIT"  
       s.author       = { "wuhao" => "503007958@qq.com" }  
-      s.platform     = :ios, "8.0"  
+      s.platform     = :ios, "11.0"
       s.source       = { :git => "https://github.com/remember17/WHKit.git", :tag => s.version }  
       s.source_files  = "WHKit", "WHKit/*.{h,m}"  
       s.framework  = "UIKit"  

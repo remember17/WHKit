@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+WHVC.h"
+#import "WHMacro.h"
 
 @implementation UIViewController (WHVC)
 
@@ -61,10 +62,8 @@
     }
 }
 
-+ (UIViewController *)wh_currentViewController
-{
-    UIViewController *viewController = [[UIApplication sharedApplication].delegate window].rootViewController;
-    
++ (UIViewController *)wh_currentViewController {
+    UIViewController *viewController = KCurrentWindow.rootViewController;
     return [UIViewController findBestViewController:viewController];
 }
 

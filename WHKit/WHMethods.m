@@ -18,17 +18,6 @@
     [super viewDidLoad];
 }
 
-+ (void)wh_setStatusBarBackgroundColor:(UIColor *)color
-{
-    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-    
-    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])
-    {
-        statusBar.backgroundColor = color;
-    }
-}
-
-
 +(void)wh_addBackgroundImageWithImageName:(NSString *)imageName forViewController:(UIViewController *)viewController {
     //给控制器添加背景图片
     UIImage *oldImage = [UIImage imageNamed:imageName];

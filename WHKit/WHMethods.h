@@ -10,9 +10,6 @@
 
 @interface WHMethods : UIViewController
 
-/** 更改iOS状态栏的颜色 */
-+ (void)wh_setStatusBarBackgroundColor:(UIColor *)color;
-
 /** 为控制器添加背景图片 */
 + (void)wh_addBackgroundImageWithImageName:(NSString *)imageName forViewController:(UIViewController *)viewController;
 

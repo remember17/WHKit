@@ -10,7 +10,7 @@
 #import <Accelerate/Accelerate.h>
 #import <ImageIO/ImageIO.h>
 #import <objc/runtime.h>
-
+#import "WHMacro.h"
 
 #if __has_feature(objc_arc)
 #define toCF (__bridge CFTypeRef)
@@ -45,7 +45,7 @@
 
 //截屏
 +(instancetype)wh_snapshotCurrentScreen{
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UIWindow *window = KCurrentWindow;
     UIGraphicsBeginImageContextWithOptions(window.bounds.size, NO, 0);
     [window drawViewHierarchyInRect:window.frame afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

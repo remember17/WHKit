@@ -6,6 +6,36 @@
 //  Copyright © 2017年 remember17. All rights reserved.
 //  
 
+static inline UIWindow* wh_currentWindow() {
+    UIWindow* window = nil;
+    if (@available(iOS 13.0, *)) {
+        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes) {
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                window = windowScene.windows.firstObject;
+                break;
+            }
+        }
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        window = [UIApplication sharedApplication].keyWindow;
+#pragma clang diagnostic pop
+    }
+    return window;
+}
+
+static inline BOOL isIphoneX() {
+    BOOL result = NO;
+    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
+        return result;
+    }
+    if (@available(iOS 11.0, *)) {
+        if (wh_currentWindow().safeAreaInsets.bottom > 0.0) {
+            result = YES;
+        }
+    }
+    return result;
+}
 
 //NSLog
 #ifdef DEBUG
@@ -65,8 +95,10 @@
 
 //Aplication
 #define kApplication [UIApplication sharedApplication]
-//keyWindow
-#define kKeyWindow [UIApplication sharedApplication].keyWindow
+//currentWindow
+#define kKeyWindow (wh_currentWindow())
+//currentWindow
+#define KCurrentWindow (wh_currentWindow())
 //AppDelegate
 #define kAppdelegate [UIApplication sharedApplication].delegate
 //UserDefaults
@@ -153,18 +185,5 @@ sizeWithFont:font constrainedToSize:maxSize] : CGSizeZero;
 #define kSystemFont(FONTSIZE)    [UIFont systemFontOfSize:FONTSIZE]
 #define kFont(NAME,FONTSIZE)     [UIFont fontWithName:(NAME) size:(FONTSIZE)]
 
-static inline BOOL isIphoneX() {
-    BOOL result = NO;
-    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
-        return result;
-    }
-    if (@available(iOS 11.0, *)) {
-        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
-        if (mainWindow.safeAreaInsets.bottom > 0.0) {
-            result = YES;
-        }
-    }
-    return result;
-}
 // 是否为iPhone X
 #define kIs_iPhoneX (isIphoneX())
